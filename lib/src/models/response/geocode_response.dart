@@ -1,0 +1,99 @@
+import 'package:json_annotation/json_annotation.dart';
+
+import '../../constants.dart';
+import '../../utils/comparer.dart';
+import 'response.dart';
+
+part 'geocode_response.g.dart';
+
+/// {@template geocode_response}
+/// Модель ответа геокодирования
+/// {@endtemplate}
+@JsonSerializable(createToJson: false)
+class GeocodeResponse with Comparer {
+  /// {@macro geocode_response}
+  GeocodeResponse({
+    this.response,
+  });
+
+  /// Преобразование json в модель
+  factory GeocodeResponse.fromJson(Map<String, dynamic> json) =>
+      _$GeocodeResponseFromJson(json);
+
+  @override
+  Map<String, Object> get equals => <String, Object>{
+        kResponse: response,
+      };
+
+  GeoObject get _firstGeoObject =>
+      response.geoObjectCollection.featureMember.first.geoObject;
+
+  /// Первый адрес
+  Address get firstAddress =>
+      _firstGeoObject.metaDataProperty.geocoderMetaData.address;
+
+  /// Первая страна
+  Country get firstCountry =>
+      _firstGeoObject.metaDataProperty.geocoderMetaData.addressDetails.country;
+
+  /// Первая координата
+  Point get firstPoint => _firstGeoObject.point;
+
+  /// Первый полный адрес с координатой
+  FullAddress get firstFullAddress => FullAddress(
+        countryCode: firstAddress.countryCode,
+        formattedAddress: firstAddress.formatted,
+        postalCode: firstAddress.postalCode,
+        point: firstPoint,
+      );
+
+  GeoObject _geoObject(int id) =>
+      response.geoObjectCollection.featureMember[id].geoObject;
+
+  /// Адрес по id
+  Address address(int id) =>
+      _geoObject(id).metaDataProperty.geocoderMetaData.address;
+
+  /// Страна по id
+  Country country(int id) =>
+      _geoObject(id).metaDataProperty.geocoderMetaData.addressDetails.country;
+
+  /// Координата по id
+  Point point(int id) => _geoObject(id).point;
+
+  /// Полный адрес с координатой по id
+  FullAddress fullAddress(int id) => FullAddress(
+        countryCode: address(id).countryCode,
+        formattedAddress: address(id).formatted,
+        postalCode: address(id).postalCode,
+        point: point(id),
+      );
+
+  /// {@macro response}
+  @JsonKey(name: kResponse)
+  final Response response;
+}
+
+/// {@template response}
+/// Модель ответа
+/// {@endtemplate}
+@JsonSerializable(createToJson: false)
+class Response with Comparer {
+  /// {@macro response}
+  Response({
+    this.geoObjectCollection,
+  });
+
+  /// Преобразование json в модель
+  factory Response.fromJson(Map<String, dynamic> json) =>
+      _$ResponseFromJson(json);
+
+  @override
+  Map<String, Object> get equals => <String, Object>{
+        kGeoObjectCollection: geoObjectCollection,
+      };
+
+  /// Коллекция геообъектов
+  @JsonKey(name: kGeoObjectCollection)
+  final GeoObjectCollection geoObjectCollection;
+}
