@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import 'models/models.dart';
 import 'utils/network_client.dart' as network;
 
@@ -19,10 +17,8 @@ import 'utils/network_client.dart' as network;
 class YandexGeocoder {
   /// {@macro yandex_geocode}
   factory YandexGeocoder({
-    @required String apiKey,
+    required String apiKey,
   }) {
-    assert(apiKey != null, 'The key cannot be empty!');
-
     return YandexGeocoder._(apiKey: apiKey);
   }
 
@@ -38,7 +34,7 @@ class YandexGeocoder {
   });
 
   /// Ключ, полученный в Кабинете разработчика
-  final String apiKey;
+  final String? apiKey;
 
   /// Запрос на получение геокодирования
   Future<GeocodeResponse> getGeocode(GeocodeRequest geocode) {
@@ -52,7 +48,7 @@ class YandexGeocoder {
       request: _checkKey
           ? geocode
           : GeocodeRequest.withKey(
-              apiKey: apiKey,
+              apiKey: apiKey!,
               geocode: geocode.geocode,
               kind: geocode.kind,
               rspn: geocode.rspn,

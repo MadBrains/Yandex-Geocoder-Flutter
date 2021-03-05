@@ -8,7 +8,7 @@ part of 'common.dart';
 
 Point _$PointFromJson(Map<String, dynamic> json) {
   return Point(
-    pos: json['pos'] as String,
+    pos: json['pos'] as String?,
   );
 }
 
@@ -22,7 +22,7 @@ BoundedBy _$BoundedByFromJson(Map<String, dynamic> json) {
 
 Envelope _$EnvelopeFromJson(Map<String, dynamic> json) {
   return Envelope(
-    lowerCorner: json['lowerCorner'] as String,
-    upperCorner: json['upperCorner'] as String,
+    lowerCorner: json['lowerCorner'] as String?,
+    upperCorner: json['upperCorner'] as String?,
   );
 }

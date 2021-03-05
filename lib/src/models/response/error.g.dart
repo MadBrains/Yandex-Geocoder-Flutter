@@ -8,8 +8,8 @@ part of 'error.dart';
 
 Error _$ErrorFromJson(Map<String, dynamic> json) {
   return Error(
-    statusCode: json['statusCode'] as int,
-    error: json['error'] as String,
-    message: json['message'] as String,
+    statusCode: json['statusCode'] as int?,
+    error: json['error'] as String?,
+    message: json['message'] as String?,
   );
 }

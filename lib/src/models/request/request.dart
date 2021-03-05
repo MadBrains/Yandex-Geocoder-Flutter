@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import '../../constants.dart';
 import '../../utils/comparer.dart';
 

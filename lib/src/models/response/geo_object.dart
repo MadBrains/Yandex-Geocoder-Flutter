@@ -22,18 +22,18 @@ class GeoObjectCollection with Comparer {
       _$GeoObjectCollectionFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kMetaDataProperty: metaDataProperty,
         kFeatureMember: featureMember,
       };
 
   /// Cвойство метаданных
   @JsonKey(name: kMetaDataProperty)
-  final GeoObjectCollectionMetaDataProperty metaDataProperty;
+  final GeoObjectCollectionMetaDataProperty? metaDataProperty;
 
   /// Особенность геообъектов
   @JsonKey(name: kFeatureMember)
-  final List<FeatureMember> featureMember;
+  final List<FeatureMember>? featureMember;
 }
 
 /// {@template feature_member}
@@ -51,13 +51,13 @@ class FeatureMember with Comparer {
       _$FeatureMemberFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kGeoObject: geoObject,
       };
 
   /// {@macro geo_object}
   @JsonKey(name: kGeoObject)
-  final GeoObject geoObject;
+  final GeoObject? geoObject;
 }
 
 /// {@template geo_object}
@@ -79,7 +79,7 @@ class GeoObject with Comparer {
       _$GeoObjectFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kMetaDataProperty: metaDataProperty,
         kName: name,
         kDescription: description,
@@ -89,23 +89,23 @@ class GeoObject with Comparer {
 
   /// Cвойство метаданных
   @JsonKey(name: kMetaDataProperty)
-  final GeoObjectMetaDataProperty metaDataProperty;
+  final GeoObjectMetaDataProperty? metaDataProperty;
 
   /// Имя геообъекта
   @JsonKey(name: kName)
-  final String name;
+  final String? name;
 
   /// Описание геообъекта
   @JsonKey(name: kDescription)
-  final String description;
+  final String? description;
 
   /// Ограниченность по геообъекту
   @JsonKey(name: kBoundedBy)
-  final BoundedBy boundedBy;
+  final BoundedBy? boundedBy;
 
   /// Координаты геообъекта
   @JsonKey(name: kPoint)
-  final Point point;
+  final Point? point;
 }
 
 /// {@template meta_data_property}
@@ -123,13 +123,13 @@ class GeoObjectMetaDataProperty with Comparer {
       _$GeoObjectMetaDataPropertyFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kGeocoderMetaData: geocoderMetaData,
       };
 
   /// {@macro meta_data_property}
   @JsonKey(name: kGeocoderMetaData)
-  final GeocoderMetaData geocoderMetaData;
+  final GeocoderMetaData? geocoderMetaData;
 }
 
 /// {@macro meta_data_property}
@@ -149,7 +149,7 @@ class GeocoderMetaData with Comparer {
       _$GeocoderMetaDataFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kPrecision: precision,
         kText: text,
         kKind: kind,
@@ -159,23 +159,23 @@ class GeocoderMetaData with Comparer {
 
   /// Точность
   @JsonKey(name: kPrecision)
-  final String precision;
+  final String? precision;
 
   /// Текст
   @JsonKey(name: kText)
-  final String text;
+  final String? text;
 
   /// {@macro kind_response}
   @JsonKey(name: kKind, unknownEnumValue: KindResponse.unknown)
-  final KindResponse kind;
+  final KindResponse? kind;
 
   /// {@macro address}
   @JsonKey(name: kAddress)
-  final Address address;
+  final Address? address;
 
   /// {@macro address_details}
   @JsonKey(name: kAddressDetails)
-  final AddressDetails addressDetails;
+  final AddressDetails? addressDetails;
 }
 
 /// {@template geocoder_response_meta_data}
@@ -194,13 +194,13 @@ class GeoObjectCollectionMetaDataProperty with Comparer {
       _$GeoObjectCollectionMetaDataPropertyFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kGeocoderResponseMetaData: geocoderResponseMetaData,
       };
 
   /// {@macro geocoder_response_meta_data}
   @JsonKey(name: kGeocoderResponseMetaData)
-  final GeocoderResponseMetaData geocoderResponseMetaData;
+  final GeocoderResponseMetaData? geocoderResponseMetaData;
 }
 
 /// {@macro geocoder_response_meta_data}
@@ -220,7 +220,7 @@ class GeocoderResponseMetaData with Comparer {
       _$GeocoderResponseMetaDataFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kPoint: point,
         kBoundedBy: boundedBy,
         kRequest: request,
@@ -230,21 +230,21 @@ class GeocoderResponseMetaData with Comparer {
 
   /// Коодрдинаты
   @JsonKey(name: kPoint)
-  final Point point;
+  final Point? point;
 
   /// Область поиска
   @JsonKey(name: kBoundedBy)
-  final BoundedBy boundedBy;
+  final BoundedBy? boundedBy;
 
   /// Запрос
   @JsonKey(name: kRequest)
-  final String request;
+  final String? request;
 
   /// Результаты
   @JsonKey(name: kResults)
-  final String results;
+  final String? results;
 
   /// Кол-во найденых
   @JsonKey(name: kFound)
-  final String found;
+  final String? found;
 }

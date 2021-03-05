@@ -8,13 +8,12 @@ part of 'address.dart';
 
 Address _$AddressFromJson(Map<String, dynamic> json) {
   return Address(
-    countryCode: json['country_code'] as String,
-    formatted: json['formatted'] as String,
-    postalCode: json['postal_code'] as String,
-    components: (json['Components'] as List)
-        ?.map((e) =>
-            e == null ? null : Component.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    countryCode: json['country_code'] as String?,
+    formatted: json['formatted'] as String?,
+    postalCode: json['postal_code'] as String?,
+    components: (json['Components'] as List<dynamic>?)
+        ?.map((e) => Component.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 
@@ -22,40 +21,45 @@ Component _$ComponentFromJson(Map<String, dynamic> json) {
   return Component(
     kind: _$enumDecodeNullable(_$KindResponseEnumMap, json['kind'],
         unknownValue: KindResponse.unknown),
-    name: json['name'] as String,
+    name: json['name'] as String?,
   );
 }
 
-T _$enumDecode<T>(
-  Map<T, dynamic> enumValues,
-  dynamic source, {
-  T unknownValue,
+K _$enumDecode<K, V>(
+  Map<K, V> enumValues,
+  Object? source, {
+  K? unknownValue,
 }) {
   if (source == null) {
-    throw ArgumentError('A value must be provided. Supported values: '
-        '${enumValues.values.join(', ')}');
+    throw ArgumentError(
+      'A value must be provided. Supported values: '
+      '${enumValues.values.join(', ')}',
+    );
   }
 
-  final value = enumValues.entries
-      .singleWhere((e) => e.value == source, orElse: () => null)
-      ?.key;
-
-  if (value == null && unknownValue == null) {
-    throw ArgumentError('`$source` is not one of the supported values: '
-        '${enumValues.values.join(', ')}');
-  }
-  return value ?? unknownValue;
+  return enumValues.entries.singleWhere(
+    (e) => e.value == source,
+    orElse: () {
+      if (unknownValue == null) {
+        throw ArgumentError(
+          '`$source` is not one of the supported values: '
+          '${enumValues.values.join(', ')}',
+        );
+      }
+      return MapEntry(unknownValue, enumValues.values.first);
+    },
+  ).key;
 }
 
-T _$enumDecodeNullable<T>(
-  Map<T, dynamic> enumValues,
+K? _$enumDecodeNullable<K, V>(
+  Map<K, V> enumValues,
   dynamic source, {
-  T unknownValue,
+  K? unknownValue,
 }) {
   if (source == null) {
     return null;
   }
-  return _$enumDecode<T>(enumValues, source, unknownValue: unknownValue);
+  return _$enumDecode<K, V>(enumValues, source, unknownValue: unknownValue);
 }
 
 const _$KindResponseEnumMap = {
@@ -81,9 +85,9 @@ AddressDetails _$AddressDetailsFromJson(Map<String, dynamic> json) {
 
 Country _$CountryFromJson(Map<String, dynamic> json) {
   return Country(
-    addressLine: json['AddressLine'] as String,
-    countryNameCode: json['CountryNameCode'] as String,
-    countryName: json['CountryName'] as String,
+    addressLine: json['AddressLine'] as String?,
+    countryNameCode: json['CountryNameCode'] as String?,
+    countryName: json['CountryName'] as String?,
     administrativeArea: json['AdministrativeArea'] == null
         ? null
         : AdministrativeArea.fromJson(
@@ -93,7 +97,7 @@ Country _$CountryFromJson(Map<String, dynamic> json) {
 
 AdministrativeArea _$AdministrativeAreaFromJson(Map<String, dynamic> json) {
   return AdministrativeArea(
-    administrativeAreaName: json['AdministrativeAreaName'] as String,
+    administrativeAreaName: json['AdministrativeAreaName'] as String?,
     subAdministrativeArea: json['SubAdministrativeArea'] == null
         ? null
         : SubAdministrativeArea.fromJson(
@@ -107,7 +111,7 @@ AdministrativeArea _$AdministrativeAreaFromJson(Map<String, dynamic> json) {
 SubAdministrativeArea _$SubAdministrativeAreaFromJson(
     Map<String, dynamic> json) {
   return SubAdministrativeArea(
-    subAdministrativeAreaName: json['SubAdministrativeAreaName'] as String,
+    subAdministrativeAreaName: json['SubAdministrativeAreaName'] as String?,
     locality: json['Locality'] == null
         ? null
         : Locality.fromJson(json['Locality'] as Map<String, dynamic>),
@@ -116,7 +120,7 @@ SubAdministrativeArea _$SubAdministrativeAreaFromJson(
 
 Locality _$LocalityFromJson(Map<String, dynamic> json) {
   return Locality(
-    localityName: json['LocalityName'] as String,
+    localityName: json['LocalityName'] as String?,
     premise: json['Premise'] == null
         ? null
         : Premise.fromJson(json['Premise'] as Map<String, dynamic>),
@@ -133,7 +137,7 @@ Locality _$LocalityFromJson(Map<String, dynamic> json) {
 LocalityDependentLocality _$LocalityDependentLocalityFromJson(
     Map<String, dynamic> json) {
   return LocalityDependentLocality(
-    dependentLocalityName: json['DependentLocalityName'] as String,
+    dependentLocalityName: json['DependentLocalityName'] as String?,
     dependentLocality: json['DependentLocality'] == null
         ? null
         : LocalityDependentLocality.fromJson(
@@ -143,7 +147,7 @@ LocalityDependentLocality _$LocalityDependentLocalityFromJson(
 
 Thoroughfare _$ThoroughfareFromJson(Map<String, dynamic> json) {
   return Thoroughfare(
-    thoroughfareName: json['ThoroughfareName'] as String,
+    thoroughfareName: json['ThoroughfareName'] as String?,
     premise: json['Premise'] == null
         ? null
         : Premise.fromJson(json['Premise'] as Map<String, dynamic>),
@@ -152,16 +156,16 @@ Thoroughfare _$ThoroughfareFromJson(Map<String, dynamic> json) {
 
 Premise _$PremiseFromJson(Map<String, dynamic> json) {
   return Premise(
-    premiseNumber: json['PremiseNumber'] as String,
+    premiseNumber: json['PremiseNumber'] as String?,
     postalCode: json['PostalCode'] == null
         ? null
         : PostalCode.fromJson(json['PostalCode'] as Map<String, dynamic>),
-    premiseName: json['PremiseName'] as String,
+    premiseName: json['PremiseName'] as String?,
   );
 }
 
 PostalCode _$PostalCodeFromJson(Map<String, dynamic> json) {
   return PostalCode(
-    postalCodeNumber: json['PostalCodeNumber'] as String,
+    postalCodeNumber: json['PostalCodeNumber'] as String?,
   );
 }

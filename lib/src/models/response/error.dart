@@ -22,7 +22,7 @@ class Error with Comparer {
   factory Error.fromJson(Map<String, dynamic> json) => _$ErrorFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kStatusCode: statusCode,
         kError: error,
         kMessage: message,
@@ -30,13 +30,13 @@ class Error with Comparer {
 
   /// Статус код
   @JsonKey(name: kStatusCode)
-  final int statusCode;
+  final int? statusCode;
 
   /// Ошибка
   @JsonKey(name: kError)
-  final String error;
+  final String? error;
 
   /// Сообщение
   @JsonKey(name: kMessage)
-  final String message;
+  final String? message;
 }

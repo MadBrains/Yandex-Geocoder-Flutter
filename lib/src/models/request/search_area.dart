@@ -18,8 +18,8 @@ abstract class SearchArea with Comparer {
 class SearchAreaLL extends SearchArea {
   /// {@macro search_area_ll}
   SearchAreaLL({
-    @required this.latitude,
-    @required this.longitude,
+    required this.latitude,
+    required this.longitude,
   });
 
   /// Широта
@@ -48,8 +48,8 @@ class SearchAreaLL extends SearchArea {
 class SearchAreaSPN extends SearchArea {
   /// {@macro search_area_spn}
   SearchAreaSPN({
-    @required this.differenceLatitude,
-    @required this.differenceLongitude,
+    required this.differenceLatitude,
+    required this.differenceLongitude,
   });
 
   /// Разницу между максимальной и минимальной широтой области;
@@ -82,10 +82,10 @@ class SearchAreaSPN extends SearchArea {
 class SearchAreaBBOX extends SearchArea {
   /// {@macro search_area_bbox}
   SearchAreaBBOX({
-    @required this.latitudeLeft,
-    @required this.latitudeRight,
-    @required this.longitudeLeft,
-    @required this.longitudeRight,
+    required this.latitudeLeft,
+    required this.latitudeRight,
+    required this.longitudeLeft,
+    required this.longitudeRight,
   });
 
   /// Широта (левого нижнего)

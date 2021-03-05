@@ -12,11 +12,9 @@ GeoObjectCollection _$GeoObjectCollectionFromJson(Map<String, dynamic> json) {
         ? null
         : GeoObjectCollectionMetaDataProperty.fromJson(
             json['metaDataProperty'] as Map<String, dynamic>),
-    featureMember: (json['featureMember'] as List)
-        ?.map((e) => e == null
-            ? null
-            : FeatureMember.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    featureMember: (json['featureMember'] as List<dynamic>?)
+        ?.map((e) => FeatureMember.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 
@@ -34,8 +32,8 @@ GeoObject _$GeoObjectFromJson(Map<String, dynamic> json) {
         ? null
         : GeoObjectMetaDataProperty.fromJson(
             json['metaDataProperty'] as Map<String, dynamic>),
-    name: json['name'] as String,
-    description: json['description'] as String,
+    name: json['name'] as String?,
+    description: json['description'] as String?,
     boundedBy: json['boundedBy'] == null
         ? null
         : BoundedBy.fromJson(json['boundedBy'] as Map<String, dynamic>),
@@ -57,8 +55,8 @@ GeoObjectMetaDataProperty _$GeoObjectMetaDataPropertyFromJson(
 
 GeocoderMetaData _$GeocoderMetaDataFromJson(Map<String, dynamic> json) {
   return GeocoderMetaData(
-    precision: json['precision'] as String,
-    text: json['text'] as String,
+    precision: json['precision'] as String?,
+    text: json['text'] as String?,
     kind: _$enumDecodeNullable(_$KindResponseEnumMap, json['kind'],
         unknownValue: KindResponse.unknown),
     address: json['Address'] == null
@@ -71,36 +69,41 @@ GeocoderMetaData _$GeocoderMetaDataFromJson(Map<String, dynamic> json) {
   );
 }
 
-T _$enumDecode<T>(
-  Map<T, dynamic> enumValues,
-  dynamic source, {
-  T unknownValue,
+K _$enumDecode<K, V>(
+  Map<K, V> enumValues,
+  Object? source, {
+  K? unknownValue,
 }) {
   if (source == null) {
-    throw ArgumentError('A value must be provided. Supported values: '
-        '${enumValues.values.join(', ')}');
+    throw ArgumentError(
+      'A value must be provided. Supported values: '
+      '${enumValues.values.join(', ')}',
+    );
   }
 
-  final value = enumValues.entries
-      .singleWhere((e) => e.value == source, orElse: () => null)
-      ?.key;
-
-  if (value == null && unknownValue == null) {
-    throw ArgumentError('`$source` is not one of the supported values: '
-        '${enumValues.values.join(', ')}');
-  }
-  return value ?? unknownValue;
+  return enumValues.entries.singleWhere(
+    (e) => e.value == source,
+    orElse: () {
+      if (unknownValue == null) {
+        throw ArgumentError(
+          '`$source` is not one of the supported values: '
+          '${enumValues.values.join(', ')}',
+        );
+      }
+      return MapEntry(unknownValue, enumValues.values.first);
+    },
+  ).key;
 }
 
-T _$enumDecodeNullable<T>(
-  Map<T, dynamic> enumValues,
+K? _$enumDecodeNullable<K, V>(
+  Map<K, V> enumValues,
   dynamic source, {
-  T unknownValue,
+  K? unknownValue,
 }) {
   if (source == null) {
     return null;
   }
-  return _$enumDecode<T>(enumValues, source, unknownValue: unknownValue);
+  return _$enumDecode<K, V>(enumValues, source, unknownValue: unknownValue);
 }
 
 const _$KindResponseEnumMap = {
@@ -135,8 +138,8 @@ GeocoderResponseMetaData _$GeocoderResponseMetaDataFromJson(
     boundedBy: json['boundedBy'] == null
         ? null
         : BoundedBy.fromJson(json['boundedBy'] as Map<String, dynamic>),
-    request: json['request'] as String,
-    results: json['results'] as String,
-    found: json['found'] as String,
+    request: json['request'] as String?,
+    results: json['results'] as String?,
+    found: json['found'] as String?,
   );
 }
