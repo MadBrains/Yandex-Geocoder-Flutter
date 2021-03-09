@@ -2,16 +2,15 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:meta/meta.dart';
 
 import 'package:yandex_geocoder/src/models/models.dart';
 import '../constants.dart';
 
 /// Запрос на получение геокодирования
 Future<GeocodeResponse> getGeocode({
-  @required GeocodeRequest request,
-  @required GeocodeResponse Function(Map<String, dynamic> json) response,
-  @required Error Function(Map<String, dynamic> json) error,
+  required GeocodeRequest request,
+  required GeocodeResponse Function(Map<String, dynamic> json) response,
+  required Error Function(Map<String, dynamic> json) error,
 }) {
   final Completer<GeocodeResponse> _completer = Completer<GeocodeResponse>();
   http
@@ -31,7 +30,7 @@ Future<GeocodeResponse> getGeocode({
         }
       })
       .timeout(kRequestTimeLimit)
-      .catchError((dynamic error) {
+      .catchError((Object error) {
         _completer.completeError(error);
       });
 

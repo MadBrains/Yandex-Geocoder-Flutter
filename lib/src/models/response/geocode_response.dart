@@ -21,57 +21,60 @@ class GeocodeResponse with Comparer {
       _$GeocodeResponseFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kResponse: response,
       };
 
-  GeoObject get _firstGeoObject =>
-      response.geoObjectCollection.featureMember.first.geoObject;
+  GeoObject? get _firstGeoObject =>
+      response?.geoObjectCollection?.featureMember?.first.geoObject;
 
   /// Первый адрес
-  Address get firstAddress =>
-      _firstGeoObject.metaDataProperty.geocoderMetaData.address;
+  Address? get firstAddress =>
+      _firstGeoObject?.metaDataProperty?.geocoderMetaData?.address;
 
   /// Первая страна
-  Country get firstCountry =>
-      _firstGeoObject.metaDataProperty.geocoderMetaData.addressDetails.country;
+  Country? get firstCountry => _firstGeoObject
+      ?.metaDataProperty?.geocoderMetaData?.addressDetails?.country;
 
   /// Первая координата
-  Point get firstPoint => _firstGeoObject.point;
+  Point? get firstPoint => _firstGeoObject?.point;
 
   /// Первый полный адрес с координатой
   FullAddress get firstFullAddress => FullAddress(
-        countryCode: firstAddress.countryCode,
-        formattedAddress: firstAddress.formatted,
-        postalCode: firstAddress.postalCode,
+        countryCode: firstAddress?.countryCode,
+        formattedAddress: firstAddress?.formatted,
+        postalCode: firstAddress?.postalCode,
         point: firstPoint,
       );
 
-  GeoObject _geoObject(int id) =>
-      response.geoObjectCollection.featureMember[id].geoObject;
+  GeoObject? _geoObject(int id) =>
+      response?.geoObjectCollection?.featureMember?[id].geoObject;
 
   /// Адрес по id
-  Address address(int id) =>
-      _geoObject(id).metaDataProperty.geocoderMetaData.address;
+  Address? address(int id) =>
+      _geoObject(id)?.metaDataProperty?.geocoderMetaData?.address;
 
   /// Страна по id
-  Country country(int id) =>
-      _geoObject(id).metaDataProperty.geocoderMetaData.addressDetails.country;
+  Country? country(int id) => _geoObject(id)
+      ?.metaDataProperty
+      ?.geocoderMetaData
+      ?.addressDetails
+      ?.country;
 
   /// Координата по id
-  Point point(int id) => _geoObject(id).point;
+  Point? point(int id) => _geoObject(id)?.point;
 
   /// Полный адрес с координатой по id
   FullAddress fullAddress(int id) => FullAddress(
-        countryCode: address(id).countryCode,
-        formattedAddress: address(id).formatted,
-        postalCode: address(id).postalCode,
+        countryCode: address(id)?.countryCode,
+        formattedAddress: address(id)?.formatted,
+        postalCode: address(id)?.postalCode,
         point: point(id),
       );
 
   /// {@macro response}
   @JsonKey(name: kResponse)
-  final Response response;
+  final Response? response;
 }
 
 /// {@template response}
@@ -89,11 +92,11 @@ class Response with Comparer {
       _$ResponseFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kGeoObjectCollection: geoObjectCollection,
       };
 
   /// Коллекция геообъектов
   @JsonKey(name: kGeoObjectCollection)
-  final GeoObjectCollection geoObjectCollection;
+  final GeoObjectCollection? geoObjectCollection;
 }

@@ -7,11 +7,11 @@ import 'package:collection/collection.dart';
 /// Использует `Jenkins Hash Functions` и `Deep Comparison`
 mixin Comparer {
   /// Объекты для сравнения
-  Map<String, Object> get equals;
+  Map<String, Object?> get equals;
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ _finish(equals.values?.fold(0, _combine) ?? 0);
+      runtimeType.hashCode ^ _finish(equals.values.fold<int>(0, _combine));
 
   @override
   bool operator ==(Object other) =>
@@ -26,7 +26,7 @@ mixin Comparer {
   static const DeepCollectionEquality _equality = DeepCollectionEquality();
 
   /// Determines whether [list1] and [list2] are equal.
-  bool _equals<T>(List<T> list1, List<T> list2) {
+  bool _equals<T>(List<T>? list1, List<T>? list2) {
     if (identical(list1, list2)) return true;
     if (list1 == null || list2 == null) return false;
     final int length = list1.length;
@@ -49,7 +49,7 @@ mixin Comparer {
 
   /// Jenkins Hash Functions
   /// https://en.wikipedia.org/wiki/Jenkins_hash_function
-  int _combine(int hash, dynamic object) {
+  int _combine(int hash, Object? object) {
     if (object is Map) {
       object.forEach((dynamic key, dynamic value) {
         hash = hash ^ _combine(hash, <dynamic>[key, value]);

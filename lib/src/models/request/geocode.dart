@@ -23,8 +23,8 @@ abstract class Geocode with Comparer {
 class PointGeocode extends Geocode {
   /// {@macro point_geocode}
   PointGeocode({
-    @required this.latitude,
-    @required this.longitude,
+    required this.latitude,
+    required this.longitude,
   });
 
   /// Широта
@@ -51,7 +51,7 @@ class PointGeocode extends Geocode {
 /// {@endtemplate}
 class AddressGeocode extends Geocode {
   /// {@macro address_geocode}
-  AddressGeocode({@required this.address});
+  AddressGeocode({required this.address});
 
   /// Адрес
   final String address;

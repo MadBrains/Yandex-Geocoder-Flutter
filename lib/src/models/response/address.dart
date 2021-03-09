@@ -19,7 +19,7 @@ class FullAddress with Comparer {
   });
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kCountryCode: countryCode,
         kFormatted: formattedAddress,
         kPostalCode: postalCode,
@@ -27,16 +27,16 @@ class FullAddress with Comparer {
       };
 
   /// Код страны
-  final String countryCode;
+  final String? countryCode;
 
   /// Форматированный адрес
-  final String formattedAddress;
+  final String? formattedAddress;
 
   /// Почтовый адрес
-  final String postalCode;
+  final String? postalCode;
 
   /// Координаты адреса
-  final Point point;
+  final Point? point;
 }
 
 /// {@template address}
@@ -57,7 +57,7 @@ class Address with Comparer {
       _$AddressFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kCountryCode: countryCode,
         kFormatted: formatted,
         kPostalCode: postalCode,
@@ -66,19 +66,19 @@ class Address with Comparer {
 
   /// Код страны
   @JsonKey(name: kCountryCode)
-  final String countryCode;
+  final String? countryCode;
 
   /// Форматированный адрес
   @JsonKey(name: kFormatted)
-  final String formatted;
+  final String? formatted;
 
   /// Почтовый адрес
   @JsonKey(name: kPostalCode)
-  final String postalCode;
+  final String? postalCode;
 
   /// Компоненты адреса
   @JsonKey(name: kComponents)
-  final List<Component> components;
+  final List<Component>? components;
 }
 
 /// {@template component}
@@ -97,18 +97,18 @@ class Component with Comparer {
       _$ComponentFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kKind: kind,
         kName: name,
       };
 
   /// Тип адреса
   @JsonKey(name: kKind, unknownEnumValue: KindResponse.unknown)
-  final KindResponse kind;
+  final KindResponse? kind;
 
   /// Имя компонента
   @JsonKey(name: kName)
-  final String name;
+  final String? name;
 }
 
 /// {@template address_details}
@@ -126,13 +126,13 @@ class AddressDetails with Comparer {
       _$AddressDetailsFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kCountry: country,
       };
 
   /// {@macro country}
   @JsonKey(name: kCountry)
-  final Country country;
+  final Country? country;
 }
 
 /// {@template country}
@@ -153,7 +153,7 @@ class Country with Comparer {
       _$CountryFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kAddressLine: addressLine,
         kCountryNameCode: countryNameCode,
         kCountryName: countryName,
@@ -162,19 +162,19 @@ class Country with Comparer {
 
   /// Полный адрес
   @JsonKey(name: kAddressLine)
-  final String addressLine;
+  final String? addressLine;
 
   /// Код страны
   @JsonKey(name: kCountryNameCode)
-  final String countryNameCode;
+  final String? countryNameCode;
 
   /// Имя страны
   @JsonKey(name: kCountryName)
-  final String countryName;
+  final String? countryName;
 
   /// Административный район
   @JsonKey(name: kAdministrativeArea)
-  final AdministrativeArea administrativeArea;
+  final AdministrativeArea? administrativeArea;
 }
 
 /// {@template administrative_area}
@@ -194,7 +194,7 @@ class AdministrativeArea with Comparer {
       _$AdministrativeAreaFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kAdministrativeAreaName: administrativeAreaName,
         kSubAdministrativeArea: subAdministrativeArea,
         kLocality: locality,
@@ -202,15 +202,15 @@ class AdministrativeArea with Comparer {
 
   /// Имя административного района
   @JsonKey(name: kAdministrativeAreaName)
-  final String administrativeAreaName;
+  final String? administrativeAreaName;
 
   /// Субадминистративный район
   @JsonKey(name: kSubAdministrativeArea)
-  final SubAdministrativeArea subAdministrativeArea;
+  final SubAdministrativeArea? subAdministrativeArea;
 
   /// Местонахождение
   @JsonKey(name: kLocality)
-  final Locality locality;
+  final Locality? locality;
 }
 
 /// {@template sub_administrative_area}
@@ -229,18 +229,18 @@ class SubAdministrativeArea with Comparer {
       _$SubAdministrativeAreaFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kSubAdministrativeAreaName: subAdministrativeAreaName,
         kLocality: locality,
       };
 
   /// Имя субадминистративного района
   @JsonKey(name: kSubAdministrativeAreaName)
-  final String subAdministrativeAreaName;
+  final String? subAdministrativeAreaName;
 
   /// Местонахождение
   @JsonKey(name: kLocality)
-  final Locality locality;
+  final Locality? locality;
 }
 
 /// {@template locality}
@@ -261,7 +261,7 @@ class Locality with Comparer {
       _$LocalityFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kLocalityName: localityName,
         kPremise: premise,
         kThoroughfare: thoroughfare,
@@ -270,19 +270,19 @@ class Locality with Comparer {
 
   /// Название населенного пункта
   @JsonKey(name: kLocalityName)
-  final String localityName;
+  final String? localityName;
 
   /// Владение
   @JsonKey(name: kPremise)
-  final Premise premise;
+  final Premise? premise;
 
   /// Улица
   @JsonKey(name: kThoroughfare)
-  final Thoroughfare thoroughfare;
+  final Thoroughfare? thoroughfare;
 
   /// {@macro dependent_locality}
   @JsonKey(name: kDependentLocality)
-  final LocalityDependentLocality dependentLocality;
+  final LocalityDependentLocality? dependentLocality;
 }
 
 /// {@template dependent_locality}
@@ -301,18 +301,18 @@ class LocalityDependentLocality with Comparer {
       _$LocalityDependentLocalityFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kDependentLocalityName: dependentLocalityName,
         kDependentLocality: dependentLocality,
       };
 
   /// Имя зависимого местонахождения
   @JsonKey(name: kDependentLocalityName)
-  final String dependentLocalityName;
+  final String? dependentLocalityName;
 
   /// {@macro dependent_locality}
   @JsonKey(name: kDependentLocality)
-  final LocalityDependentLocality dependentLocality;
+  final LocalityDependentLocality? dependentLocality;
 }
 
 /// {@template thoroughfare}
@@ -331,18 +331,18 @@ class Thoroughfare with Comparer {
       _$ThoroughfareFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kThoroughfareName: thoroughfareName,
         kPremise: premise,
       };
 
   /// Имя улицы
   @JsonKey(name: kThoroughfareName)
-  final String thoroughfareName;
+  final String? thoroughfareName;
 
   /// Владение
   @JsonKey(name: kPremise)
-  final Premise premise;
+  final Premise? premise;
 }
 
 /// {@template premise}
@@ -362,7 +362,7 @@ class Premise with Comparer {
       _$PremiseFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kPremiseName: premiseName,
         kPremiseNumber: premiseNumber,
         kPostalCode2: postalCode,
@@ -370,15 +370,15 @@ class Premise with Comparer {
 
   /// Имя владения
   @JsonKey(name: kPremiseName)
-  final String premiseName;
+  final String? premiseName;
 
   /// Номер владения
   @JsonKey(name: kPremiseNumber)
-  final String premiseNumber;
+  final String? premiseNumber;
 
   /// Почтовый индекс
   @JsonKey(name: kPostalCode2)
-  final PostalCode postalCode;
+  final PostalCode? postalCode;
 }
 
 /// {@template postal_code}
@@ -396,11 +396,11 @@ class PostalCode with Comparer {
       _$PostalCodeFromJson(json);
 
   @override
-  Map<String, Object> get equals => <String, Object>{
+  Map<String, Object?> get equals => <String, Object?>{
         kPostalCodeNumber: postalCodeNumber,
       };
 
   /// Почтовый индекс
   @JsonKey(name: kPostalCodeNumber)
-  final String postalCodeNumber;
+  final String? postalCodeNumber;
 }
