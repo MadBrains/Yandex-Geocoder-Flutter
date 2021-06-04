@@ -19,7 +19,7 @@ The geocoder helps to determine the coordinates of an object by its address or, 
 Add this to your package's pubspec.yaml file:
 ```yaml
 dependencies:
-  yandex_geocoder: 1.0.0
+  yandex_geocoder: 2.0.1
 ```
 
 ## Usage
