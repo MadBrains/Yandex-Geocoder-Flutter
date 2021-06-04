@@ -19,7 +19,7 @@
 Для подключения добавьте в файл Pubspec зависимости:
 ```yaml
 dependencies:
-  yandex_geocoder: 1.0.0
+  yandex_geocoder: 2.0.1
 ```
 
 ## Использование
