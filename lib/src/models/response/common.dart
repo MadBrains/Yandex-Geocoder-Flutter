@@ -25,12 +25,12 @@ class Point with Comparer {
 
   /// Широта
   double get latitude => pos?.isNotEmpty == true
-      ? double.tryParse(pos ?? ''.split(' ').last) ?? 0
+      ? double.tryParse((pos ?? '').split(' ').last) ?? 0
       : 0.0;
 
   /// Долгота
   double get longitude => pos?.isNotEmpty == true
-      ? double.tryParse(pos ?? ''.split(' ').first) ?? 0
+      ? double.tryParse((pos ?? '').split(' ').first) ?? 0
       : 0.0;
 
   /// Координаты точки
