@@ -2,6 +2,9 @@
 
 <a href="https://madbrains.ru/"><img src="https://firebasestorage.googleapis.com/v0/b/mad-brains-web.appspot.com/o/logo.png?alt=media" width="200" align="right" style="margin: 20px;"/></a>
 
+[![pub package](https://img.shields.io/pub/v/yandex_geocoder.svg)](https://pub.dartlang.org/packages/yandex_geocoder)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 [Read this in English](README.md)
 
 Геокодер помогает определить координаты объекта по его адресу или, наоборот, установить адрес по координатам.
@@ -19,7 +22,7 @@
 Для подключения добавьте в файл Pubspec зависимости:
 ```yaml
 dependencies:
-  yandex_geocoder: 2.0.1
+  yandex_geocoder: <lastles>
 ```
 
 ## Использование
