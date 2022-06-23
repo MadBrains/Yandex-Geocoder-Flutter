@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'package:flutter/material.dart';
 import 'package:yandex_geocoder/yandex_geocoder.dart';
 
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key key}) : super(key: key);
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -57,16 +59,21 @@ class _MyHomePageState extends State<MyHomePage> {
           latLong = 'null';
           setState(() {});
 
-          final GeocodeResponse _address = await geo.getGeocode(GeocodeRequest(
-            geocode: PointGeocode(latitude: 55.771899, longitude: 37.597576),
-          ));
-          address = _address.firstAddress.formatted;
+          final GeocodeResponse _address = await geo.getGeocode(
+            GeocodeRequest(
+              geocode: PointGeocode(latitude: 55.771899, longitude: 37.597576),
+            ),
+          );
+          address = _address.firstAddress?.formatted ?? 'null';
 
-          final GeocodeResponse _latLong = await geo.getGeocode(GeocodeRequest(
-            geocode:
-                AddressGeocode(address: 'Москва, 4-я Тверская-Ямская улица, 7'),
-          ));
-          latLong = _latLong.firstPoint.pos;
+          final GeocodeResponse _latLong = await geo.getGeocode(
+            GeocodeRequest(
+              geocode: AddressGeocode(
+                address: 'Москва, 4-я Тверская-Ямская улица, 7',
+              ),
+            ),
+          );
+          latLong = _latLong.firstPoint?.pos ?? 'null';
 
           setState(() {});
         },

@@ -1,3 +1,8 @@
+## [2.0.2]
+
+* Dependency Update
+* Rebuilding example
+
 ## [2.0.1]
 
 * Fix syntax for getting correct coordinates on `common.dart`
