@@ -2,6 +2,9 @@
 
 <a href="https://madbrains.ru/"><img src="https://firebasestorage.googleapis.com/v0/b/mad-brains-web.appspot.com/o/logo.png?alt=media" width="200" align="right" style="margin: 20px;"/></a>
 
+[![pub package](https://img.shields.io/pub/v/yandex_geocoder.svg)](https://pub.dartlang.org/packages/yandex_geocoder)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 [Read this in Russian](README.ru.md)
 
 The geocoder helps to determine the coordinates of an object by its address or, conversely, to set the address by its coordinates.
@@ -19,7 +22,7 @@ The geocoder helps to determine the coordinates of an object by its address or, 
 Add this to your package's pubspec.yaml file:
 ```yaml
 dependencies:
-  yandex_geocoder: 2.0.1
+  yandex_geocoder: <lastles>
 ```
 
 ## Usage
