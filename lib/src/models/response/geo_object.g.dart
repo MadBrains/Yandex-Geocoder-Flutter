@@ -6,105 +6,62 @@ part of 'geo_object.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-GeoObjectCollection _$GeoObjectCollectionFromJson(Map<String, dynamic> json) {
-  return GeoObjectCollection(
-    metaDataProperty: json['metaDataProperty'] == null
-        ? null
-        : GeoObjectCollectionMetaDataProperty.fromJson(
-            json['metaDataProperty'] as Map<String, dynamic>),
-    featureMember: (json['featureMember'] as List<dynamic>?)
-        ?.map((e) => FeatureMember.fromJson(e as Map<String, dynamic>))
-        .toList(),
-  );
-}
+GeoObjectCollection _$GeoObjectCollectionFromJson(Map<String, dynamic> json) =>
+    GeoObjectCollection(
+      metaDataProperty: json['metaDataProperty'] == null
+          ? null
+          : GeoObjectCollectionMetaDataProperty.fromJson(
+              json['metaDataProperty'] as Map<String, dynamic>),
+      featureMember: (json['featureMember'] as List<dynamic>?)
+          ?.map((e) => FeatureMember.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
 
-FeatureMember _$FeatureMemberFromJson(Map<String, dynamic> json) {
-  return FeatureMember(
-    geoObject: json['GeoObject'] == null
-        ? null
-        : GeoObject.fromJson(json['GeoObject'] as Map<String, dynamic>),
-  );
-}
+FeatureMember _$FeatureMemberFromJson(Map<String, dynamic> json) =>
+    FeatureMember(
+      geoObject: json['GeoObject'] == null
+          ? null
+          : GeoObject.fromJson(json['GeoObject'] as Map<String, dynamic>),
+    );
 
-GeoObject _$GeoObjectFromJson(Map<String, dynamic> json) {
-  return GeoObject(
-    metaDataProperty: json['metaDataProperty'] == null
-        ? null
-        : GeoObjectMetaDataProperty.fromJson(
-            json['metaDataProperty'] as Map<String, dynamic>),
-    name: json['name'] as String?,
-    description: json['description'] as String?,
-    boundedBy: json['boundedBy'] == null
-        ? null
-        : BoundedBy.fromJson(json['boundedBy'] as Map<String, dynamic>),
-    point: json['Point'] == null
-        ? null
-        : Point.fromJson(json['Point'] as Map<String, dynamic>),
-  );
-}
+GeoObject _$GeoObjectFromJson(Map<String, dynamic> json) => GeoObject(
+      metaDataProperty: json['metaDataProperty'] == null
+          ? null
+          : GeoObjectMetaDataProperty.fromJson(
+              json['metaDataProperty'] as Map<String, dynamic>),
+      name: json['name'] as String?,
+      description: json['description'] as String?,
+      boundedBy: json['boundedBy'] == null
+          ? null
+          : BoundedBy.fromJson(json['boundedBy'] as Map<String, dynamic>),
+      point: json['Point'] == null
+          ? null
+          : Point.fromJson(json['Point'] as Map<String, dynamic>),
+    );
 
 GeoObjectMetaDataProperty _$GeoObjectMetaDataPropertyFromJson(
-    Map<String, dynamic> json) {
-  return GeoObjectMetaDataProperty(
-    geocoderMetaData: json['GeocoderMetaData'] == null
-        ? null
-        : GeocoderMetaData.fromJson(
-            json['GeocoderMetaData'] as Map<String, dynamic>),
-  );
-}
-
-GeocoderMetaData _$GeocoderMetaDataFromJson(Map<String, dynamic> json) {
-  return GeocoderMetaData(
-    precision: json['precision'] as String?,
-    text: json['text'] as String?,
-    kind: _$enumDecodeNullable(_$KindResponseEnumMap, json['kind'],
-        unknownValue: KindResponse.unknown),
-    address: json['Address'] == null
-        ? null
-        : Address.fromJson(json['Address'] as Map<String, dynamic>),
-    addressDetails: json['AddressDetails'] == null
-        ? null
-        : AddressDetails.fromJson(
-            json['AddressDetails'] as Map<String, dynamic>),
-  );
-}
-
-K _$enumDecode<K, V>(
-  Map<K, V> enumValues,
-  Object? source, {
-  K? unknownValue,
-}) {
-  if (source == null) {
-    throw ArgumentError(
-      'A value must be provided. Supported values: '
-      '${enumValues.values.join(', ')}',
+        Map<String, dynamic> json) =>
+    GeoObjectMetaDataProperty(
+      geocoderMetaData: json['GeocoderMetaData'] == null
+          ? null
+          : GeocoderMetaData.fromJson(
+              json['GeocoderMetaData'] as Map<String, dynamic>),
     );
-  }
 
-  return enumValues.entries.singleWhere(
-    (e) => e.value == source,
-    orElse: () {
-      if (unknownValue == null) {
-        throw ArgumentError(
-          '`$source` is not one of the supported values: '
-          '${enumValues.values.join(', ')}',
-        );
-      }
-      return MapEntry(unknownValue, enumValues.values.first);
-    },
-  ).key;
-}
-
-K? _$enumDecodeNullable<K, V>(
-  Map<K, V> enumValues,
-  dynamic source, {
-  K? unknownValue,
-}) {
-  if (source == null) {
-    return null;
-  }
-  return _$enumDecode<K, V>(enumValues, source, unknownValue: unknownValue);
-}
+GeocoderMetaData _$GeocoderMetaDataFromJson(Map<String, dynamic> json) =>
+    GeocoderMetaData(
+      precision: json['precision'] as String?,
+      text: json['text'] as String?,
+      kind: $enumDecodeNullable(_$KindResponseEnumMap, json['kind'],
+          unknownValue: KindResponse.unknown),
+      address: json['Address'] == null
+          ? null
+          : Address.fromJson(json['Address'] as Map<String, dynamic>),
+      addressDetails: json['AddressDetails'] == null
+          ? null
+          : AddressDetails.fromJson(
+              json['AddressDetails'] as Map<String, dynamic>),
+    );
 
 const _$KindResponseEnumMap = {
   KindResponse.house: 'house',
@@ -120,26 +77,24 @@ const _$KindResponseEnumMap = {
 };
 
 GeoObjectCollectionMetaDataProperty
-    _$GeoObjectCollectionMetaDataPropertyFromJson(Map<String, dynamic> json) {
-  return GeoObjectCollectionMetaDataProperty(
-    geocoderResponseMetaData: json['GeocoderResponseMetaData'] == null
-        ? null
-        : GeocoderResponseMetaData.fromJson(
-            json['GeocoderResponseMetaData'] as Map<String, dynamic>),
-  );
-}
+    _$GeoObjectCollectionMetaDataPropertyFromJson(Map<String, dynamic> json) =>
+        GeoObjectCollectionMetaDataProperty(
+          geocoderResponseMetaData: json['GeocoderResponseMetaData'] == null
+              ? null
+              : GeocoderResponseMetaData.fromJson(
+                  json['GeocoderResponseMetaData'] as Map<String, dynamic>),
+        );
 
 GeocoderResponseMetaData _$GeocoderResponseMetaDataFromJson(
-    Map<String, dynamic> json) {
-  return GeocoderResponseMetaData(
-    point: json['Point'] == null
-        ? null
-        : Point.fromJson(json['Point'] as Map<String, dynamic>),
-    boundedBy: json['boundedBy'] == null
-        ? null
-        : BoundedBy.fromJson(json['boundedBy'] as Map<String, dynamic>),
-    request: json['request'] as String?,
-    results: json['results'] as String?,
-    found: json['found'] as String?,
-  );
-}
+        Map<String, dynamic> json) =>
+    GeocoderResponseMetaData(
+      point: json['Point'] == null
+          ? null
+          : Point.fromJson(json['Point'] as Map<String, dynamic>),
+      boundedBy: json['boundedBy'] == null
+          ? null
+          : BoundedBy.fromJson(json['boundedBy'] as Map<String, dynamic>),
+      request: json['request'] as String?,
+      results: json['results'] as String?,
+      found: json['found'] as String?,
+    );

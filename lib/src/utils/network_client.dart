@@ -3,8 +3,8 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import 'package:yandex_geocoder/src/models/models.dart';
 import '../constants.dart';
+import '../models/models.dart';
 
 /// Запрос на получение геокодирования
 Future<GeocodeResponse> getGeocode({

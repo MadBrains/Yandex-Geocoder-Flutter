@@ -6,10 +6,8 @@ part of 'error.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Error _$ErrorFromJson(Map<String, dynamic> json) {
-  return Error(
-    statusCode: json['statusCode'] as int?,
-    error: json['error'] as String?,
-    message: json['message'] as String?,
-  );
-}
+Error _$ErrorFromJson(Map<String, dynamic> json) => Error(
+      statusCode: json['statusCode'] as int?,
+      error: json['error'] as String?,
+      message: json['message'] as String?,
+    );
