@@ -18,14 +18,6 @@ class FullAddress with Comparer {
     this.point,
   });
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kCountryCode: countryCode,
-        kFormatted: formattedAddress,
-        kPostalCode: postalCode,
-        kPoint: point,
-      };
-
   /// Код страны
   final String? countryCode;
 
@@ -37,6 +29,10 @@ class FullAddress with Comparer {
 
   /// Координаты адреса
   final Point? point;
+
+  @override
+  List<Object?> get objects =>
+      <Object?>[countryCode, formattedAddress, postalCode, point];
 }
 
 /// {@template address}
@@ -56,14 +52,6 @@ class Address with Comparer {
   factory Address.fromJson(Map<String, dynamic> json) =>
       _$AddressFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kCountryCode: countryCode,
-        kFormatted: formatted,
-        kPostalCode: postalCode,
-        kComponents: components,
-      };
-
   /// Код страны
   @JsonKey(name: kCountryCode)
   final String? countryCode;
@@ -79,6 +67,10 @@ class Address with Comparer {
   /// Компоненты адреса
   @JsonKey(name: kComponents)
   final List<Component>? components;
+
+  @override
+  List<Object?> get objects =>
+      <Object?>[countryCode, formatted, postalCode, components];
 }
 
 /// {@template component}
@@ -96,12 +88,6 @@ class Component with Comparer {
   factory Component.fromJson(Map<String, dynamic> json) =>
       _$ComponentFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kKind: kind,
-        kName: name,
-      };
-
   /// Тип адреса
   @JsonKey(name: kKind, unknownEnumValue: KindResponse.unknown)
   final KindResponse? kind;
@@ -109,6 +95,9 @@ class Component with Comparer {
   /// Имя компонента
   @JsonKey(name: kName)
   final String? name;
+
+  @override
+  List<Object?> get objects => <Object?>[kind, name];
 }
 
 /// {@template address_details}
@@ -125,14 +114,12 @@ class AddressDetails with Comparer {
   factory AddressDetails.fromJson(Map<String, dynamic> json) =>
       _$AddressDetailsFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kCountry: country,
-      };
-
   /// {@macro country}
   @JsonKey(name: kCountry)
   final Country? country;
+
+  @override
+  List<Object?> get objects => <Object?>[country];
 }
 
 /// {@template country}
@@ -152,14 +139,6 @@ class Country with Comparer {
   factory Country.fromJson(Map<String, dynamic> json) =>
       _$CountryFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kAddressLine: addressLine,
-        kCountryNameCode: countryNameCode,
-        kCountryName: countryName,
-        kAdministrativeArea: administrativeArea,
-      };
-
   /// Полный адрес
   @JsonKey(name: kAddressLine)
   final String? addressLine;
@@ -175,6 +154,10 @@ class Country with Comparer {
   /// Административный район
   @JsonKey(name: kAdministrativeArea)
   final AdministrativeArea? administrativeArea;
+
+  @override
+  List<Object?> get objects =>
+      <Object?>[addressLine, countryNameCode, countryName, administrativeArea];
 }
 
 /// {@template administrative_area}
@@ -193,13 +176,6 @@ class AdministrativeArea with Comparer {
   factory AdministrativeArea.fromJson(Map<String, dynamic> json) =>
       _$AdministrativeAreaFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kAdministrativeAreaName: administrativeAreaName,
-        kSubAdministrativeArea: subAdministrativeArea,
-        kLocality: locality,
-      };
-
   /// Имя административного района
   @JsonKey(name: kAdministrativeAreaName)
   final String? administrativeAreaName;
@@ -211,6 +187,10 @@ class AdministrativeArea with Comparer {
   /// Местонахождение
   @JsonKey(name: kLocality)
   final Locality? locality;
+
+  @override
+  List<Object?> get objects =>
+      <Object?>[administrativeAreaName, subAdministrativeArea, locality];
 }
 
 /// {@template sub_administrative_area}
@@ -228,12 +208,6 @@ class SubAdministrativeArea with Comparer {
   factory SubAdministrativeArea.fromJson(Map<String, dynamic> json) =>
       _$SubAdministrativeAreaFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kSubAdministrativeAreaName: subAdministrativeAreaName,
-        kLocality: locality,
-      };
-
   /// Имя субадминистративного района
   @JsonKey(name: kSubAdministrativeAreaName)
   final String? subAdministrativeAreaName;
@@ -241,6 +215,9 @@ class SubAdministrativeArea with Comparer {
   /// Местонахождение
   @JsonKey(name: kLocality)
   final Locality? locality;
+
+  @override
+  List<Object?> get objects => <Object?>[subAdministrativeAreaName, locality];
 }
 
 /// {@template locality}
@@ -260,14 +237,6 @@ class Locality with Comparer {
   factory Locality.fromJson(Map<String, dynamic> json) =>
       _$LocalityFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kLocalityName: localityName,
-        kPremise: premise,
-        kThoroughfare: thoroughfare,
-        kDependentLocality: dependentLocality,
-      };
-
   /// Название населенного пункта
   @JsonKey(name: kLocalityName)
   final String? localityName;
@@ -283,6 +252,10 @@ class Locality with Comparer {
   /// {@macro dependent_locality}
   @JsonKey(name: kDependentLocality)
   final LocalityDependentLocality? dependentLocality;
+
+  @override
+  List<Object?> get objects =>
+      <Object?>[localityName, premise, thoroughfare, dependentLocality];
 }
 
 /// {@template dependent_locality}
@@ -300,12 +273,6 @@ class LocalityDependentLocality with Comparer {
   factory LocalityDependentLocality.fromJson(Map<String, dynamic> json) =>
       _$LocalityDependentLocalityFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kDependentLocalityName: dependentLocalityName,
-        kDependentLocality: dependentLocality,
-      };
-
   /// Имя зависимого местонахождения
   @JsonKey(name: kDependentLocalityName)
   final String? dependentLocalityName;
@@ -313,6 +280,10 @@ class LocalityDependentLocality with Comparer {
   /// {@macro dependent_locality}
   @JsonKey(name: kDependentLocality)
   final LocalityDependentLocality? dependentLocality;
+
+  @override
+  List<Object?> get objects =>
+      <Object?>[dependentLocalityName, dependentLocality];
 }
 
 /// {@template thoroughfare}
@@ -330,12 +301,6 @@ class Thoroughfare with Comparer {
   factory Thoroughfare.fromJson(Map<String, dynamic> json) =>
       _$ThoroughfareFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kThoroughfareName: thoroughfareName,
-        kPremise: premise,
-      };
-
   /// Имя улицы
   @JsonKey(name: kThoroughfareName)
   final String? thoroughfareName;
@@ -343,6 +308,9 @@ class Thoroughfare with Comparer {
   /// Владение
   @JsonKey(name: kPremise)
   final Premise? premise;
+
+  @override
+  List<Object?> get objects => <Object?>[thoroughfareName, premise];
 }
 
 /// {@template premise}
@@ -361,13 +329,6 @@ class Premise with Comparer {
   factory Premise.fromJson(Map<String, dynamic> json) =>
       _$PremiseFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kPremiseName: premiseName,
-        kPremiseNumber: premiseNumber,
-        kPostalCode2: postalCode,
-      };
-
   /// Имя владения
   @JsonKey(name: kPremiseName)
   final String? premiseName;
@@ -379,6 +340,10 @@ class Premise with Comparer {
   /// Почтовый индекс
   @JsonKey(name: kPostalCode2)
   final PostalCode? postalCode;
+
+  @override
+  List<Object?> get objects =>
+      <Object?>[premiseName, premiseNumber, postalCode];
 }
 
 /// {@template postal_code}
@@ -395,12 +360,10 @@ class PostalCode with Comparer {
   factory PostalCode.fromJson(Map<String, dynamic> json) =>
       _$PostalCodeFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kPostalCodeNumber: postalCodeNumber,
-      };
-
   /// Почтовый индекс
   @JsonKey(name: kPostalCodeNumber)
   final String? postalCodeNumber;
+
+  @override
+  List<Object?> get objects => <Object?>[postalCodeNumber];
 }

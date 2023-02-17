@@ -18,11 +18,6 @@ class Point with Comparer {
   /// Преобразование json в модель
   factory Point.fromJson(Map<String, dynamic> json) => _$PointFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kPos: pos,
-      };
-
   /// Широта
   double get latitude => pos?.isNotEmpty == true
       ? double.tryParse((pos ?? '').split(' ').last) ?? 0
@@ -36,6 +31,9 @@ class Point with Comparer {
   /// Координаты точки
   @JsonKey(name: kPos)
   final String? pos;
+
+  @override
+  List<Object?> get objects => <Object?>[pos];
 }
 
 /// {@template bounded_by}
@@ -52,14 +50,12 @@ class BoundedBy with Comparer {
   factory BoundedBy.fromJson(Map<String, dynamic> json) =>
       _$BoundedByFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kEnvelope: envelope,
-      };
-
   /// {@macro envelope}
   @JsonKey(name: kEnvelope)
   final Envelope? envelope;
+
+  @override
+  List<Object?> get objects => <Object?>[envelope];
 }
 
 /// {@template envelope}
@@ -77,12 +73,6 @@ class Envelope with Comparer {
   factory Envelope.fromJson(Map<String, dynamic> json) =>
       _$EnvelopeFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kLowerCorner: lowerCorner,
-        kUpperCorner: upperCorner,
-      };
-
   /// Нижний угол
   @JsonKey(name: kLowerCorner)
   final String? lowerCorner;
@@ -90,4 +80,7 @@ class Envelope with Comparer {
   /// Верхний угол
   @JsonKey(name: kUpperCorner)
   final String? upperCorner;
+
+  @override
+  List<Object?> get objects => <Object?>[lowerCorner, upperCorner];
 }

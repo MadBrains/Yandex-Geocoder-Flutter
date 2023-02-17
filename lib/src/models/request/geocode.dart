@@ -39,10 +39,7 @@ class PointGeocode extends Geocode {
   }
 
   @override
-  Map<String, Object> get equals => <String, Object>{
-        'Latitude': latitude,
-        'Longitude': longitude,
-      };
+  List<Object> get objects => <Object>[latitude, longitude];
 }
 
 /// {@template address_geocode}
@@ -62,7 +59,5 @@ class AddressGeocode extends Geocode {
   }
 
   @override
-  Map<String, Object> get equals => <String, Object>{
-        'Address': address,
-      };
+  List<Object> get objects => <Object>[address];
 }
