@@ -59,9 +59,8 @@ class YandexGeocoder {
               skip: geocode.skip,
               lang: geocode.lang,
             ),
-      response: (Map<String, dynamic> response) =>
-          GeocodeResponse.fromJson(response),
-      error: (Map<String, dynamic> error) => Error.fromJson(error),
+      response: GeocodeResponse.fromJson,
+      error: Error.fromJson,
     );
   }
 }
