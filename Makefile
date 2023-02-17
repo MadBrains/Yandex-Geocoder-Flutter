@@ -12,6 +12,7 @@ FVM_DART = $(FVM) dart
 init:
 	$(FVM) use 3.7.3 --force; $(FVM_DART) pub global activate pana;
 
+
 version:
 	$(FVM_FLUTTER) --version; $(FVM_DART) --version;
 
