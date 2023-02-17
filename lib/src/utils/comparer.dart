@@ -3,21 +3,21 @@ import 'package:collection/collection.dart';
 /// `Runtime` генератор [hashCode], [==] и [toString]
 mixin Comparer {
   /// Объекты для сравнения
-  List<Object?> get objects;
+  List<Object?> get comparedObjects;
 
   @override
-  int get hashCode => Object.hashAll(objects);
+  int get hashCode => Object.hashAll(comparedObjects);
 
   @override
   bool operator ==(Object other) =>
       (identical(this, other)) ||
       other is Comparer &&
           runtimeType == other.runtimeType &&
-          _equals(other.objects, objects);
+          _equals(other.comparedObjects, comparedObjects);
 
   @override
   String toString() =>
-      '$runtimeType(${objects.map((Object? o) => o.toString()).join(', ')})';
+      '$runtimeType(${comparedObjects.map((Object? o) => o.toString()).join(', ')})';
 
   static const DeepCollectionEquality _equality = DeepCollectionEquality();
 

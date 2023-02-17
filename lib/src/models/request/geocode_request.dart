@@ -128,7 +128,7 @@ class GeocodeRequest with Comparer {
       };
 
   @override
-  List<Object?> get objects => <Object?>[
+  List<Object?> get comparedObjects => <Object?>[
         geocode,
         apiKey,
         kind,

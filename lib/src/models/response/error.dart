@@ -34,5 +34,5 @@ class Error with Comparer {
   final String? message;
 
   @override
-  List<Object?> get objects => <Object?>[statusCode, error, message];
+  List<Object?> get comparedObjects => <Object?>[statusCode, error, message];
 }

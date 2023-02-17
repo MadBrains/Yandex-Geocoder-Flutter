@@ -31,7 +31,7 @@ class FullAddress with Comparer {
   final Point? point;
 
   @override
-  List<Object?> get objects =>
+  List<Object?> get comparedObjects =>
       <Object?>[countryCode, formattedAddress, postalCode, point];
 }
 
@@ -69,7 +69,7 @@ class Address with Comparer {
   final List<Component>? components;
 
   @override
-  List<Object?> get objects =>
+  List<Object?> get comparedObjects =>
       <Object?>[countryCode, formatted, postalCode, components];
 }
 
@@ -97,7 +97,7 @@ class Component with Comparer {
   final String? name;
 
   @override
-  List<Object?> get objects => <Object?>[kind, name];
+  List<Object?> get comparedObjects => <Object?>[kind, name];
 }
 
 /// {@template address_details}
@@ -119,7 +119,7 @@ class AddressDetails with Comparer {
   final Country? country;
 
   @override
-  List<Object?> get objects => <Object?>[country];
+  List<Object?> get comparedObjects => <Object?>[country];
 }
 
 /// {@template country}
@@ -156,7 +156,7 @@ class Country with Comparer {
   final AdministrativeArea? administrativeArea;
 
   @override
-  List<Object?> get objects =>
+  List<Object?> get comparedObjects =>
       <Object?>[addressLine, countryNameCode, countryName, administrativeArea];
 }
 
@@ -189,7 +189,7 @@ class AdministrativeArea with Comparer {
   final Locality? locality;
 
   @override
-  List<Object?> get objects =>
+  List<Object?> get comparedObjects =>
       <Object?>[administrativeAreaName, subAdministrativeArea, locality];
 }
 
@@ -217,7 +217,8 @@ class SubAdministrativeArea with Comparer {
   final Locality? locality;
 
   @override
-  List<Object?> get objects => <Object?>[subAdministrativeAreaName, locality];
+  List<Object?> get comparedObjects =>
+      <Object?>[subAdministrativeAreaName, locality];
 }
 
 /// {@template locality}
@@ -254,7 +255,7 @@ class Locality with Comparer {
   final LocalityDependentLocality? dependentLocality;
 
   @override
-  List<Object?> get objects =>
+  List<Object?> get comparedObjects =>
       <Object?>[localityName, premise, thoroughfare, dependentLocality];
 }
 
@@ -282,7 +283,7 @@ class LocalityDependentLocality with Comparer {
   final LocalityDependentLocality? dependentLocality;
 
   @override
-  List<Object?> get objects =>
+  List<Object?> get comparedObjects =>
       <Object?>[dependentLocalityName, dependentLocality];
 }
 
@@ -310,7 +311,7 @@ class Thoroughfare with Comparer {
   final Premise? premise;
 
   @override
-  List<Object?> get objects => <Object?>[thoroughfareName, premise];
+  List<Object?> get comparedObjects => <Object?>[thoroughfareName, premise];
 }
 
 /// {@template premise}
@@ -342,7 +343,7 @@ class Premise with Comparer {
   final PostalCode? postalCode;
 
   @override
-  List<Object?> get objects =>
+  List<Object?> get comparedObjects =>
       <Object?>[premiseName, premiseNumber, postalCode];
 }
 
@@ -365,5 +366,5 @@ class PostalCode with Comparer {
   final String? postalCodeNumber;
 
   @override
-  List<Object?> get objects => <Object?>[postalCodeNumber];
+  List<Object?> get comparedObjects => <Object?>[postalCodeNumber];
 }

@@ -34,7 +34,7 @@ class SearchAreaLL extends SearchArea {
   }
 
   @override
-  List<Object> get objects => <Object>[latitude, longitude];
+  List<Object> get comparedObjects => <Object>[latitude, longitude];
 }
 
 /// {@template search_area_spn}
@@ -61,7 +61,8 @@ class SearchAreaSPN extends SearchArea {
   }
 
   @override
-  List<Object> get objects => <Object>[differenceLatitude, differenceLongitude];
+  List<Object> get comparedObjects =>
+      <Object>[differenceLatitude, differenceLongitude];
 }
 
 /// {@template search_area_bbox}
@@ -100,6 +101,6 @@ class SearchAreaBBOX extends SearchArea {
   }
 
   @override
-  List<Object> get objects =>
+  List<Object> get comparedObjects =>
       <Object>[latitudeLeft, latitudeRight, longitudeLeft, longitudeRight];
 }

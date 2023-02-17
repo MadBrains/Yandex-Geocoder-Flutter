@@ -72,7 +72,7 @@ class GeocodeResponse with Comparer {
   final Response? response;
 
   @override
-  List<Object?> get objects => <Object?>[response];
+  List<Object?> get comparedObjects => <Object?>[response];
 }
 
 /// {@template response}
@@ -94,5 +94,5 @@ class Response with Comparer {
   final GeoObjectCollection? geoObjectCollection;
 
   @override
-  List<Object?> get objects => <Object?>[geoObjectCollection];
+  List<Object?> get comparedObjects => <Object?>[geoObjectCollection];
 }

@@ -30,7 +30,8 @@ class GeoObjectCollection with Comparer {
   final List<FeatureMember>? featureMember;
 
   @override
-  List<Object?> get objects => <Object?>[metaDataProperty, featureMember];
+  List<Object?> get comparedObjects =>
+      <Object?>[metaDataProperty, featureMember];
 }
 
 /// {@template feature_member}
@@ -52,7 +53,7 @@ class FeatureMember with Comparer {
   final GeoObject? geoObject;
 
   @override
-  List<Object?> get objects => <Object?>[geoObject];
+  List<Object?> get comparedObjects => <Object?>[geoObject];
 }
 
 /// {@template geo_object}
@@ -94,7 +95,7 @@ class GeoObject with Comparer {
   final Point? point;
 
   @override
-  List<Object?> get objects =>
+  List<Object?> get comparedObjects =>
       <Object?>[metaDataProperty, name, description, boundedBy, point];
 }
 
@@ -117,7 +118,7 @@ class GeoObjectMetaDataProperty with Comparer {
   final GeocoderMetaData? geocoderMetaData;
 
   @override
-  List<Object?> get objects => <Object?>[geocoderMetaData];
+  List<Object?> get comparedObjects => <Object?>[geocoderMetaData];
 }
 
 /// {@macro meta_data_property}
@@ -157,7 +158,7 @@ class GeocoderMetaData with Comparer {
   final AddressDetails? addressDetails;
 
   @override
-  List<Object?> get objects =>
+  List<Object?> get comparedObjects =>
       <Object?>[precision, text, kind, address, addressDetails];
 }
 
@@ -182,7 +183,7 @@ class GeoObjectCollectionMetaDataProperty with Comparer {
   final GeocoderResponseMetaData? geocoderResponseMetaData;
 
   @override
-  List<Object?> get objects => <Object?>[geocoderResponseMetaData];
+  List<Object?> get comparedObjects => <Object?>[geocoderResponseMetaData];
 }
 
 /// {@macro geocoder_response_meta_data}
@@ -222,6 +223,6 @@ class GeocoderResponseMetaData with Comparer {
   final String? found;
 
   @override
-  List<Object?> get objects =>
+  List<Object?> get comparedObjects =>
       <Object?>[point, boundedBy, request, results, found];
 }

@@ -39,7 +39,7 @@ class PointGeocode extends Geocode {
   }
 
   @override
-  List<Object> get objects => <Object>[latitude, longitude];
+  List<Object> get comparedObjects => <Object>[latitude, longitude];
 }
 
 /// {@template address_geocode}
@@ -59,5 +59,5 @@ class AddressGeocode extends Geocode {
   }
 
   @override
-  List<Object> get objects => <Object>[address];
+  List<Object> get comparedObjects => <Object>[address];
 }

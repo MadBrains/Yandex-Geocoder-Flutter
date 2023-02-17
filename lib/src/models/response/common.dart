@@ -33,7 +33,7 @@ class Point with Comparer {
   final String? pos;
 
   @override
-  List<Object?> get objects => <Object?>[pos];
+  List<Object?> get comparedObjects => <Object?>[pos];
 }
 
 /// {@template bounded_by}
@@ -55,7 +55,7 @@ class BoundedBy with Comparer {
   final Envelope? envelope;
 
   @override
-  List<Object?> get objects => <Object?>[envelope];
+  List<Object?> get comparedObjects => <Object?>[envelope];
 }
 
 /// {@template envelope}
@@ -82,5 +82,5 @@ class Envelope with Comparer {
   final String? upperCorner;
 
   @override
-  List<Object?> get objects => <Object?>[lowerCorner, upperCorner];
+  List<Object?> get comparedObjects => <Object?>[lowerCorner, upperCorner];
 }
