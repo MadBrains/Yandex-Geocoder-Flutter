@@ -111,20 +111,6 @@ class GeocodeRequest with Comparer {
   /// {@macro lang}
   final Lang? lang;
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kGeocode: geocode,
-        kApiKey: apiKey,
-        kKind: kind,
-        kRspn: rspn,
-        kLl: ll,
-        kSpn: spn,
-        kBbox: bbox,
-        kResults: results,
-        kSkip: skip,
-        kLang: lang,
-      };
-
   /// Преобразование модели в json
   Map<String, String> toJson() => <String, String>{
         if (apiKey != null) kApiKey: apiKey!,
@@ -140,4 +126,18 @@ class GeocodeRequest with Comparer {
         if (skip != null) kSkip: skip!.toString(),
         if (lang != null) kLang: lang!._toLang(),
       };
+
+  @override
+  List<Object?> get comparedObjects => <Object?>[
+        geocode,
+        apiKey,
+        kind,
+        rspn,
+        ll,
+        spn,
+        bbox,
+        results,
+        skip,
+        lang,
+      ];
 }

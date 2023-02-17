@@ -21,13 +21,6 @@ class Error with Comparer {
   /// Преобразование json в модель
   factory Error.fromJson(Map<String, dynamic> json) => _$ErrorFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kStatusCode: statusCode,
-        kError: error,
-        kMessage: message,
-      };
-
   /// Статус код
   @JsonKey(name: kStatusCode)
   final int? statusCode;
@@ -39,4 +32,7 @@ class Error with Comparer {
   /// Сообщение
   @JsonKey(name: kMessage)
   final String? message;
+
+  @override
+  List<Object?> get comparedObjects => <Object?>[statusCode, error, message];
 }

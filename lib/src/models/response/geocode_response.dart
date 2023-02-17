@@ -20,11 +20,6 @@ class GeocodeResponse with Comparer {
   factory GeocodeResponse.fromJson(Map<String, dynamic> json) =>
       _$GeocodeResponseFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kResponse: response,
-      };
-
   GeoObject? get _firstGeoObject =>
       response?.geoObjectCollection?.featureMember?.first.geoObject;
 
@@ -75,6 +70,9 @@ class GeocodeResponse with Comparer {
   /// {@macro response}
   @JsonKey(name: kResponse)
   final Response? response;
+
+  @override
+  List<Object?> get comparedObjects => <Object?>[response];
 }
 
 /// {@template response}
@@ -91,12 +89,10 @@ class Response with Comparer {
   factory Response.fromJson(Map<String, dynamic> json) =>
       _$ResponseFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kGeoObjectCollection: geoObjectCollection,
-      };
-
   /// Коллекция геообъектов
   @JsonKey(name: kGeoObjectCollection)
   final GeoObjectCollection? geoObjectCollection;
+
+  @override
+  List<Object?> get comparedObjects => <Object?>[geoObjectCollection];
 }

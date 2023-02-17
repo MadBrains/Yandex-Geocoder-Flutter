@@ -21,12 +21,6 @@ class GeoObjectCollection with Comparer {
   factory GeoObjectCollection.fromJson(Map<String, dynamic> json) =>
       _$GeoObjectCollectionFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kMetaDataProperty: metaDataProperty,
-        kFeatureMember: featureMember,
-      };
-
   /// Cвойство метаданных
   @JsonKey(name: kMetaDataProperty)
   final GeoObjectCollectionMetaDataProperty? metaDataProperty;
@@ -34,6 +28,10 @@ class GeoObjectCollection with Comparer {
   /// Особенность геообъектов
   @JsonKey(name: kFeatureMember)
   final List<FeatureMember>? featureMember;
+
+  @override
+  List<Object?> get comparedObjects =>
+      <Object?>[metaDataProperty, featureMember];
 }
 
 /// {@template feature_member}
@@ -50,14 +48,12 @@ class FeatureMember with Comparer {
   factory FeatureMember.fromJson(Map<String, dynamic> json) =>
       _$FeatureMemberFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kGeoObject: geoObject,
-      };
-
   /// {@macro geo_object}
   @JsonKey(name: kGeoObject)
   final GeoObject? geoObject;
+
+  @override
+  List<Object?> get comparedObjects => <Object?>[geoObject];
 }
 
 /// {@template geo_object}
@@ -78,15 +74,6 @@ class GeoObject with Comparer {
   factory GeoObject.fromJson(Map<String, dynamic> json) =>
       _$GeoObjectFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kMetaDataProperty: metaDataProperty,
-        kName: name,
-        kDescription: description,
-        kBoundedBy: boundedBy,
-        kPoint: point,
-      };
-
   /// Cвойство метаданных
   @JsonKey(name: kMetaDataProperty)
   final GeoObjectMetaDataProperty? metaDataProperty;
@@ -106,6 +93,10 @@ class GeoObject with Comparer {
   /// Координаты геообъекта
   @JsonKey(name: kPoint)
   final Point? point;
+
+  @override
+  List<Object?> get comparedObjects =>
+      <Object?>[metaDataProperty, name, description, boundedBy, point];
 }
 
 /// {@template meta_data_property}
@@ -122,14 +113,12 @@ class GeoObjectMetaDataProperty with Comparer {
   factory GeoObjectMetaDataProperty.fromJson(Map<String, dynamic> json) =>
       _$GeoObjectMetaDataPropertyFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kGeocoderMetaData: geocoderMetaData,
-      };
-
   /// {@macro meta_data_property}
   @JsonKey(name: kGeocoderMetaData)
   final GeocoderMetaData? geocoderMetaData;
+
+  @override
+  List<Object?> get comparedObjects => <Object?>[geocoderMetaData];
 }
 
 /// {@macro meta_data_property}
@@ -147,15 +136,6 @@ class GeocoderMetaData with Comparer {
   /// Преобразование json в модель
   factory GeocoderMetaData.fromJson(Map<String, dynamic> json) =>
       _$GeocoderMetaDataFromJson(json);
-
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kPrecision: precision,
-        kText: text,
-        kKind: kind,
-        kAddress: address,
-        kAddressDetails: addressDetails,
-      };
 
   /// Точность
   @JsonKey(name: kPrecision)
@@ -176,6 +156,10 @@ class GeocoderMetaData with Comparer {
   /// {@macro address_details}
   @JsonKey(name: kAddressDetails)
   final AddressDetails? addressDetails;
+
+  @override
+  List<Object?> get comparedObjects =>
+      <Object?>[precision, text, kind, address, addressDetails];
 }
 
 /// {@template geocoder_response_meta_data}
@@ -194,14 +178,12 @@ class GeoObjectCollectionMetaDataProperty with Comparer {
   ) =>
       _$GeoObjectCollectionMetaDataPropertyFromJson(json);
 
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kGeocoderResponseMetaData: geocoderResponseMetaData,
-      };
-
   /// {@macro geocoder_response_meta_data}
   @JsonKey(name: kGeocoderResponseMetaData)
   final GeocoderResponseMetaData? geocoderResponseMetaData;
+
+  @override
+  List<Object?> get comparedObjects => <Object?>[geocoderResponseMetaData];
 }
 
 /// {@macro geocoder_response_meta_data}
@@ -219,15 +201,6 @@ class GeocoderResponseMetaData with Comparer {
   /// Преобразование json в модель
   factory GeocoderResponseMetaData.fromJson(Map<String, dynamic> json) =>
       _$GeocoderResponseMetaDataFromJson(json);
-
-  @override
-  Map<String, Object?> get equals => <String, Object?>{
-        kPoint: point,
-        kBoundedBy: boundedBy,
-        kRequest: request,
-        kResults: results,
-        kFound: found,
-      };
 
   /// Коодрдинаты
   @JsonKey(name: kPoint)
@@ -248,4 +221,8 @@ class GeocoderResponseMetaData with Comparer {
   /// Кол-во найденых
   @JsonKey(name: kFound)
   final String? found;
+
+  @override
+  List<Object?> get comparedObjects =>
+      <Object?>[point, boundedBy, request, results, found];
 }
