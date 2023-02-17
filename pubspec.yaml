@@ -6,7 +6,7 @@ issue_tracker: https://github.com/MadBrains/Yandex-Geocoder-Flutter/issues
 homepage: https://madbrains.ru/
 
 environment:
-  sdk: ">=2.15.0 <3.0.0"
+  sdk: ">=2.19.2 <3.0.0"
 
 dependencies:
   collection: ^1.17.0
