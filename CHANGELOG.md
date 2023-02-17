@@ -1,3 +1,8 @@
+## [2.1.0]
+
+* `Comparer` refactor
+* Dependency update
+
 ## [2.0.2]
 
 * Dependency Update

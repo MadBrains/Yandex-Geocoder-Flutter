@@ -34,10 +34,7 @@ class SearchAreaLL extends SearchArea {
   }
 
   @override
-  Map<String, Object> get equals => <String, Object>{
-        'Latitude': latitude,
-        'Longitude': longitude,
-      };
+  List<Object> get comparedObjects => <Object>[latitude, longitude];
 }
 
 /// {@template search_area_spn}
@@ -64,10 +61,8 @@ class SearchAreaSPN extends SearchArea {
   }
 
   @override
-  Map<String, Object> get equals => <String, Object>{
-        'Difference Latitude': differenceLatitude,
-        'Difference Longitude': differenceLongitude,
-      };
+  List<Object> get comparedObjects =>
+      <Object>[differenceLatitude, differenceLongitude];
 }
 
 /// {@template search_area_bbox}
@@ -106,10 +101,6 @@ class SearchAreaBBOX extends SearchArea {
   }
 
   @override
-  Map<String, Object> get equals => <String, Object>{
-        'Latitude Left': latitudeLeft,
-        'Latitude Right': latitudeRight,
-        'Longitude Left': longitudeLeft,
-        'Longitude Right': longitudeRight,
-      };
+  List<Object> get comparedObjects =>
+      <Object>[latitudeLeft, latitudeRight, longitudeLeft, longitudeRight];
 }

@@ -22,7 +22,7 @@
 Для подключения добавьте в файл Pubspec зависимости:
 ```yaml
 dependencies:
-  yandex_geocoder: <lastles>
+  yandex_geocoder: 2.1.0
 ```
 
 ## Использование

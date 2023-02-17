@@ -1,27 +1,23 @@
-// ignore_for_file: parameter_assignments
-
 import 'package:collection/collection.dart';
 
 /// `Runtime` генератор [hashCode], [==] и [toString]
-///
-/// Использует `Jenkins Hash Functions` и `Deep Comparison`
 mixin Comparer {
   /// Объекты для сравнения
-  Map<String, Object?> get equals;
+  List<Object?> get comparedObjects;
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ _finish(equals.values.fold<int>(0, _combine));
+  int get hashCode => Object.hashAll(comparedObjects);
 
   @override
   bool operator ==(Object other) =>
       (identical(this, other)) ||
       other is Comparer &&
           runtimeType == other.runtimeType &&
-          _equals(other.equals.values.toList(), equals.values.toList());
+          _equals(other.comparedObjects, comparedObjects);
 
   @override
-  String toString() => '$runtimeType(${equals.toNormalizeString()})';
+  String toString() =>
+      '$runtimeType(${comparedObjects.map((Object? o) => o.toString()).join(', ')})';
 
   static const DeepCollectionEquality _equality = DeepCollectionEquality();
 
@@ -46,37 +42,4 @@ mixin Comparer {
     }
     return true;
   }
-
-  /// Jenkins Hash Functions
-  /// https://en.wikipedia.org/wiki/Jenkins_hash_function
-  int _combine(int hash, Object? object) {
-    if (object is Map) {
-      object.forEach((dynamic key, dynamic value) {
-        hash = hash ^ _combine(hash, <dynamic>[key, value]);
-      });
-      return hash;
-    }
-    if (object is Iterable) {
-      for (final dynamic value in object) {
-        hash = hash ^ _combine(hash, value);
-      }
-      return hash ^ object.length;
-    }
-
-    hash = 0x1fffffff & (hash + object.hashCode);
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  int _finish(int hash) {
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-/// Extensions for [Map]
-extension _MapEx<K, V> on Map<K, V> {
-  /// normalize string
-  String toNormalizeString() => toString().replaceAll(RegExp(r'^{|}$'), '');
 }
