@@ -1,8 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:yandex_geocoder/yandex_geocoder.dart';
 
 import '../../constants.dart';
 import '../../utils/comparer.dart';
-import 'response.dart';
 
 part 'address.g.dart';
 
@@ -28,7 +28,7 @@ class FullAddress with Comparer {
   final String? postalCode;
 
   /// Координаты адреса
-  final Point? point;
+  final PointRecord? point;
 
   @override
   List<Object?> get comparedObjects =>

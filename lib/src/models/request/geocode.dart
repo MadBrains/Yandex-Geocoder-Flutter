@@ -11,7 +11,7 @@ part of 'request.dart';
 /// {@macro address_geocode}
 abstract class Geocode with Comparer {
   /// {@macro geocode}
-  Geocode();
+  const Geocode();
 
   String _toGeocode();
 }
@@ -22,7 +22,7 @@ abstract class Geocode with Comparer {
 /// {@endtemplate}
 class PointGeocode extends Geocode {
   /// {@macro point_geocode}
-  PointGeocode({
+  const PointGeocode({
     required this.latitude,
     required this.longitude,
   });
@@ -48,7 +48,7 @@ class PointGeocode extends Geocode {
 /// {@endtemplate}
 class AddressGeocode extends Geocode {
   /// {@macro address_geocode}
-  AddressGeocode({required this.address});
+  const AddressGeocode({required this.address});
 
   /// Адрес
   final String address;

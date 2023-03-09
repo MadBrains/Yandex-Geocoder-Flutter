@@ -6,3 +6,4 @@ part 'geocode.dart';
 part 'search_area.dart';
 part 'lang.dart';
 part 'kind_request.dart';
+part 'point_record.dart';

@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:yandex_geocoder/src/models/models.dart';
 
 import '../../constants.dart';
 import '../../utils/comparer.dart';
@@ -32,7 +33,7 @@ class GeocodeResponse with Comparer {
       ?.metaDataProperty?.geocoderMetaData?.addressDetails?.country;
 
   /// Первая координата
-  Point? get firstPoint => _firstGeoObject?.point;
+  PointRecord? get firstPoint => _firstGeoObject?.point?.record;
 
   /// Первый полный адрес с координатой
   FullAddress get firstFullAddress => FullAddress(
@@ -57,7 +58,7 @@ class GeocodeResponse with Comparer {
       ?.country;
 
   /// Координата по id
-  Point? point(int id) => _geoObject(id)?.point;
+  PointRecord? point(int id) => _geoObject(id)?.point?.record;
 
   /// Полный адрес с координатой по id
   FullAddress fullAddress(int id) => FullAddress(

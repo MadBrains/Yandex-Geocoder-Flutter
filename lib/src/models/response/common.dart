@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:yandex_geocoder/src/models/models.dart';
 
 import '../../constants.dart';
 import '../../utils/comparer.dart';
@@ -28,9 +29,13 @@ class Point with Comparer {
       ? double.tryParse((pos ?? '').split(' ').first) ?? 0
       : 0.0;
 
+  /// Собрать в Record-объект
+  PointRecord? get record => (latitude, longitude);
+
   /// Координаты точки
   @JsonKey(name: kPos)
   final String? pos;
+
 
   @override
   List<Object?> get comparedObjects => <Object?>[pos];
