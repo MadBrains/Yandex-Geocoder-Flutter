@@ -10,8 +10,7 @@ FVM_DART = $(FVM) dart
 
 
 init:
-	$(FVM) use 3.7.3 --force; $(FVM_DART) pub global activate pana;
-
+	$(FVM) use 3.8.0-10.1.pre@beta --force; $(FVM_DART) pub global activate pana;
 
 version:
 	$(FVM_FLUTTER) --version; $(FVM_DART) --version;
@@ -27,7 +26,7 @@ bump:
 	./tool/bump-version.sh $(filter-out $@,$(MAKECMDGOALS))
 
 build_runner:
-	$(FVM_FLUTTER) pub run build_runner build --delete-conflicting-outputs;
+	$(FVM_FLUTTER) pub run build_runner build --delete-conflicting-outputs --build-filter "lib/src/models/response";
 
 pub_get:
 	$(FVM_FLUTTER) packages get;
