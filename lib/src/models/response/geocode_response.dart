@@ -12,7 +12,7 @@ part 'geocode_response.g.dart';
 @JsonSerializable(createToJson: false)
 class GeocodeResponse with Comparer {
   /// {@macro geocode_response}
-  GeocodeResponse({
+  const GeocodeResponse({
     this.response,
   });
 
@@ -81,7 +81,7 @@ class GeocodeResponse with Comparer {
 @JsonSerializable(createToJson: false)
 class Response with Comparer {
   /// {@macro response}
-  Response({
+  const Response({
     this.geoObjectCollection,
   });
 

@@ -11,7 +11,7 @@ part 'common.g.dart';
 @JsonSerializable(createToJson: false)
 class Point with Comparer {
   /// {@macro point}
-  Point({
+  const Point({
     this.pos,
   });
 
@@ -42,7 +42,7 @@ class Point with Comparer {
 @JsonSerializable(createToJson: false)
 class BoundedBy with Comparer {
   /// {@macro bounded_by}
-  BoundedBy({
+  const BoundedBy({
     this.envelope,
   });
 
@@ -64,7 +64,7 @@ class BoundedBy with Comparer {
 @JsonSerializable(createToJson: false)
 class Envelope with Comparer {
   /// {@macro envelope}
-  Envelope({
+  const Envelope({
     this.lowerCorner,
     this.upperCorner,
   });

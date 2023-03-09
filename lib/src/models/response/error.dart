@@ -12,7 +12,7 @@ part 'error.g.dart';
 /// {@endtemplate}
 class Error with Comparer {
   /// {@macro error}
-  Error({
+  const Error({
     this.statusCode,
     this.error,
     this.message,

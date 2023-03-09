@@ -11,7 +11,7 @@ part 'address.g.dart';
 /// {@endtemplate}
 class FullAddress with Comparer {
   /// {@macro full_address}
-  FullAddress({
+  const FullAddress({
     this.countryCode,
     this.formattedAddress,
     this.postalCode,
@@ -41,7 +41,7 @@ class FullAddress with Comparer {
 @JsonSerializable(createToJson: false)
 class Address with Comparer {
   /// {@macro address}
-  Address({
+  const Address({
     this.countryCode,
     this.formatted,
     this.postalCode,
@@ -79,7 +79,7 @@ class Address with Comparer {
 @JsonSerializable(createToJson: false)
 class Component with Comparer {
   /// {@macro address}
-  Component({
+  const Component({
     this.kind,
     this.name,
   });
@@ -106,7 +106,7 @@ class Component with Comparer {
 @JsonSerializable(createToJson: false)
 class AddressDetails with Comparer {
   /// {@macro address_details}
-  AddressDetails({
+  const AddressDetails({
     this.country,
   });
 
@@ -128,7 +128,7 @@ class AddressDetails with Comparer {
 @JsonSerializable(createToJson: false)
 class Country with Comparer {
   /// {@macro country}
-  Country({
+  const Country({
     this.addressLine,
     this.countryNameCode,
     this.countryName,
@@ -166,7 +166,7 @@ class Country with Comparer {
 @JsonSerializable(createToJson: false)
 class AdministrativeArea with Comparer {
   /// {@macro administrative_area}
-  AdministrativeArea({
+  const AdministrativeArea({
     this.administrativeAreaName,
     this.subAdministrativeArea,
     this.locality,
@@ -199,7 +199,7 @@ class AdministrativeArea with Comparer {
 @JsonSerializable(createToJson: false)
 class SubAdministrativeArea with Comparer {
   /// {@macro sub_administrative_area}
-  SubAdministrativeArea({
+  const SubAdministrativeArea({
     this.subAdministrativeAreaName,
     this.locality,
   });
@@ -227,7 +227,7 @@ class SubAdministrativeArea with Comparer {
 @JsonSerializable(createToJson: false)
 class Locality with Comparer {
   /// {@macro locality}
-  Locality({
+  const Locality({
     this.localityName,
     this.premise,
     this.thoroughfare,
@@ -265,7 +265,7 @@ class Locality with Comparer {
 @JsonSerializable(createToJson: false)
 class LocalityDependentLocality with Comparer {
   /// {@macro dependent_locality}
-  LocalityDependentLocality({
+  const LocalityDependentLocality({
     this.dependentLocalityName,
     this.dependentLocality,
   });
@@ -293,7 +293,7 @@ class LocalityDependentLocality with Comparer {
 @JsonSerializable(createToJson: false)
 class Thoroughfare with Comparer {
   /// {@macro thoroughfare}
-  Thoroughfare({
+  const Thoroughfare({
     this.thoroughfareName,
     this.premise,
   });
@@ -320,7 +320,7 @@ class Thoroughfare with Comparer {
 @JsonSerializable(createToJson: false)
 class Premise with Comparer {
   /// {@macro premise}
-  Premise({
+  const Premise({
     this.premiseNumber,
     this.postalCode,
     this.premiseName,
@@ -353,7 +353,7 @@ class Premise with Comparer {
 @JsonSerializable(createToJson: false)
 class PostalCode with Comparer {
   /// {@macro postal_code}
-  PostalCode({
+  const PostalCode({
     this.postalCodeNumber,
   });
 

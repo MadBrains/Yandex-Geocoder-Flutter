@@ -3,9 +3,9 @@ part of 'request.dart';
 /// {@template search_area}
 /// Области поиска
 /// {@endtemplate}
-abstract class SearchArea with Comparer {
+abstract class _SearchArea with Comparer {
   /// {@macro search_area}
-  SearchArea();
+  const _SearchArea();
   // ignore: unused_element
   String _toGeocode();
 }
@@ -15,9 +15,9 @@ abstract class SearchArea with Comparer {
 ///
 /// Примечание: Протяженность области поиска задается параметром spn [SearchAreaSPN].
 /// {@endtemplate}
-class SearchAreaLL extends SearchArea {
+final class SearchAreaLL extends _SearchArea {
   /// {@macro search_area_ll}
-  SearchAreaLL({
+  const SearchAreaLL({
     required this.latitude,
     required this.longitude,
   });
@@ -42,9 +42,9 @@ class SearchAreaLL extends SearchArea {
 ///
 /// Примечание: Если параметр kind имеет значение district, параметр spn не учитывается.
 /// {@endtemplate}
-class SearchAreaSPN extends SearchArea {
+final class SearchAreaSPN extends _SearchArea {
   /// {@macro search_area_spn}
-  SearchAreaSPN({
+  const SearchAreaSPN({
     required this.differenceLatitude,
     required this.differenceLongitude,
   });
@@ -74,9 +74,9 @@ class SearchAreaSPN extends SearchArea {
 /// Примечание: При одновременном использовании параметров bbox и ll+spn,
 /// параметр bbox будет более приоритетным.
 /// {@endtemplate}
-class SearchAreaBBOX extends SearchArea {
+final class SearchAreaBBOX extends _SearchArea {
   /// {@macro search_area_bbox}
-  SearchAreaBBOX({
+  const SearchAreaBBOX({
     required this.latitudeLeft,
     required this.latitudeRight,
     required this.longitudeLeft,
