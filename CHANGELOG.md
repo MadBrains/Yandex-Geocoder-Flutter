@@ -1,4 +1,4 @@
-## [2.2.0]
+## [2.2.0-dev.1]
 
 * Dart 3 support 
 * Dependency update

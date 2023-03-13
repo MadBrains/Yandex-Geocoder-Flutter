@@ -22,7 +22,7 @@
 Для подключения добавьте в файл Pubspec зависимости:
 ```yaml
 dependencies:
-  yandex_geocoder: 2.2.0
+  yandex_geocoder: 2.2.0-dev.1
 ```
 
 ## Использование
@@ -31,12 +31,12 @@ dependencies:
 ```dart
 final YandexGeocoder geocoder = YandexGeocoder(apiKey: 'Your Api Key');
 
-final GeocodeResponse geocodeFromPoint = await geocoder.getGeocode(GeocodeRequest(
-      geocode: PointGeocode(latitude: 55.771899, longitude: 37.597576),
+final GeocodeResponse geocodeFromPoint = await geocoder.getGeocode(ReverseGeocodeRequest(
+      pointGeocode: (55.771899, 37.597576),
     ));
 
-final GeocodeResponse geocodeFromAddress = await geocoder.getGeocode(GeocodeRequest(
-      geocode: AddressGeocode(address: 'Москва, 4-я Тверская-Ямская улица, 7'),
+final GeocodeResponse geocodeFromAddress = await geocoder.getGeocode(DirectGeocodeRequest(
+      addressGeocode: 'Москва, 4-я Тверская-Ямская улица, 7',
     ));
 ```
 
