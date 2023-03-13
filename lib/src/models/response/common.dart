@@ -13,32 +13,25 @@ part 'common.g.dart';
 class Point with Comparer {
   /// {@macro point}
   const Point({
-    this.pos,
+    this.point,
   });
 
   /// Преобразование json в модель
   factory Point.fromJson(Map<String, dynamic> json) => _$PointFromJson(json);
 
   /// Широта
-  double get latitude => pos?.isNotEmpty == true
-      ? double.tryParse((pos ?? '').split(' ').last) ?? 0
-      : 0.0;
+  double? get latitude => point?.$1;
 
   /// Долгота
-  double get longitude => pos?.isNotEmpty == true
-      ? double.tryParse((pos ?? '').split(' ').first) ?? 0
-      : 0.0;
-
-  /// Собрать в Record-объект
-  PointRecord? get record => (latitude, longitude);
+  double? get longitude => point?.$2;
 
   /// Координаты точки
   @JsonKey(name: kPos)
-  final String? pos;
-
+  @PointConverter()
+  final PointRecord? point;
 
   @override
-  List<Object?> get comparedObjects => <Object?>[pos];
+  List<Object?> get comparedObjects => <Object?>[point];
 }
 
 /// {@template bounded_by}

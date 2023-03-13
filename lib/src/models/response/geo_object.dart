@@ -1,8 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:yandex_geocoder/yandex_geocoder.dart';
 
 import '../../constants.dart';
 import '../../utils/comparer.dart';
-import 'response.dart';
 
 part 'geo_object.g.dart';
 

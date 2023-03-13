@@ -60,17 +60,15 @@ class _MyHomePageState extends State<MyHomePage> {
           setState(() {});
 
           final GeocodeResponse _address = await geo.getGeocode(
-            GeocodeRequest(
-              geocode: const PointGeocode(latitude: 55.771899, longitude: 37.597576),
+            ReverseGeocodeRequest(
+              pointGeocode: (55.771899, 37.597576),
             ),
           );
           address = _address.firstAddress?.formatted ?? 'null';
 
           final GeocodeResponse _latLong = await geo.getGeocode(
-            GeocodeRequest(
-              geocode: const AddressGeocode(
-                address: 'Москва, 4-я Тверская-Ямская улица, 7',
-              ),
+            DirectGeocodeRequest(
+              addressGeocode: 'Москва, 4-я Тверская-Ямская улица, 7',
             ),
           );
 

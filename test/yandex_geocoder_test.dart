@@ -6,8 +6,8 @@ void main() {
 
   test('latLong to Address', () async {
     final GeocodeResponse geocode = await geo.getGeocode(
-      GeocodeRequest(
-        geocode: PointGeocode(latitude: 55.771899, longitude: 37.597576),
+      ReverseGeocodeRequest(
+        pointGeocode: (55.771899, 37.597576),
       ),
     );
 

@@ -15,6 +15,7 @@ abstract class _SearchArea with Comparer {
 ///
 /// Примечание: Протяженность области поиска задается параметром spn [SearchAreaSPN].
 /// {@endtemplate}
+// ignore: public_member_api_docs
 final class SearchAreaLL extends _SearchArea {
   /// {@macro search_area_ll}
   const SearchAreaLL({
@@ -42,6 +43,7 @@ final class SearchAreaLL extends _SearchArea {
 ///
 /// Примечание: Если параметр kind имеет значение district, параметр spn не учитывается.
 /// {@endtemplate}
+// ignore: public_member_api_docs
 final class SearchAreaSPN extends _SearchArea {
   /// {@macro search_area_spn}
   const SearchAreaSPN({
@@ -74,6 +76,7 @@ final class SearchAreaSPN extends _SearchArea {
 /// Примечание: При одновременном использовании параметров bbox и ll+spn,
 /// параметр bbox будет более приоритетным.
 /// {@endtemplate}
+// ignore: public_member_api_docs
 final class SearchAreaBBOX extends _SearchArea {
   /// {@macro search_area_bbox}
   const SearchAreaBBOX({
