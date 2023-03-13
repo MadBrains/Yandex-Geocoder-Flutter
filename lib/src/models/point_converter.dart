@@ -20,13 +20,13 @@ class PointConverter implements JsonConverter<PointRecord?, String?> {
 
     if (lat == null || lon == null) return null;
 
-    return (lat, lon);
+    return (lat: lat, lon: lon);
   }
 
   @override
   String toJson(PointRecord? object) {
     if (object == null) return '';
 
-    return '${object.$1},${object.$2}';
+    return '${object.lat},${object.lon}';
   }
 }

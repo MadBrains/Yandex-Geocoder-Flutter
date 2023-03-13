@@ -2,4 +2,4 @@
 /// Географические координаты искомого объекта.
 /// Используется при обратном геокодировании.
 /// {@endtemplate}
-typedef PointRecord = (double lat, double lon);
+typedef PointRecord = ({double lat, double lon});

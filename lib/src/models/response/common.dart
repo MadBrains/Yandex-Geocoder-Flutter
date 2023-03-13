@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:yandex_geocoder/src/models/models.dart';
+import 'package:yandex_geocoder/src/models/point_converter.dart';
 
 import '../../constants.dart';
 import '../../utils/comparer.dart';
@@ -20,10 +21,10 @@ class Point with Comparer {
   factory Point.fromJson(Map<String, dynamic> json) => _$PointFromJson(json);
 
   /// Широта
-  double? get latitude => point?.$1;
+  double? get latitude => point?.lat;
 
   /// Долгота
-  double? get longitude => point?.$2;
+  double? get longitude => point?.lon;
 
   /// Координаты точки
   @JsonKey(name: kPos)

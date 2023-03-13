@@ -1,4 +1,5 @@
 import 'package:yandex_geocoder/src/models/models.dart';
+import 'package:yandex_geocoder/src/models/point_converter.dart';
 
 import '../../constants.dart';
 import '../../utils/comparer.dart';
