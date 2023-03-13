@@ -24,19 +24,11 @@ enum KindRequest {
 
 /// extension for Kind
 extension _KindX on KindRequest {
-  String _toKind() {
-    switch (this) {
-      case KindRequest.house:
-        return 'house';
-      case KindRequest.street:
-        return 'street';
-      case KindRequest.metro:
-        return 'metro';
-      case KindRequest.district:
-        return 'district';
-      case KindRequest.locality:
-      default:
-        return 'locality';
-    }
-  }
+  String _toKind() => switch (this) {
+    KindRequest.house => 'house',
+    KindRequest.street =>'street',
+    KindRequest.metro =>'metro',
+    KindRequest.district =>'district',
+    KindRequest.locality => 'locality'
+  };
 }

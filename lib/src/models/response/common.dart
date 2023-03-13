@@ -1,4 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:yandex_geocoder/src/models/models.dart';
+import 'package:yandex_geocoder/src/models/point_converter.dart';
 
 import '../../constants.dart';
 import '../../utils/comparer.dart';
@@ -11,29 +13,26 @@ part 'common.g.dart';
 @JsonSerializable(createToJson: false)
 class Point with Comparer {
   /// {@macro point}
-  Point({
-    this.pos,
+  const Point({
+    this.point,
   });
 
   /// Преобразование json в модель
   factory Point.fromJson(Map<String, dynamic> json) => _$PointFromJson(json);
 
   /// Широта
-  double get latitude => pos?.isNotEmpty == true
-      ? double.tryParse((pos ?? '').split(' ').last) ?? 0
-      : 0.0;
+  double? get latitude => point?.lat;
 
   /// Долгота
-  double get longitude => pos?.isNotEmpty == true
-      ? double.tryParse((pos ?? '').split(' ').first) ?? 0
-      : 0.0;
+  double? get longitude => point?.lon;
 
   /// Координаты точки
   @JsonKey(name: kPos)
-  final String? pos;
+  @PointConverter()
+  final PointRecord? point;
 
   @override
-  List<Object?> get comparedObjects => <Object?>[pos];
+  List<Object?> get comparedObjects => <Object?>[point];
 }
 
 /// {@template bounded_by}
@@ -42,7 +41,7 @@ class Point with Comparer {
 @JsonSerializable(createToJson: false)
 class BoundedBy with Comparer {
   /// {@macro bounded_by}
-  BoundedBy({
+  const BoundedBy({
     this.envelope,
   });
 
@@ -64,7 +63,7 @@ class BoundedBy with Comparer {
 @JsonSerializable(createToJson: false)
 class Envelope with Comparer {
   /// {@macro envelope}
-  Envelope({
+  const Envelope({
     this.lowerCorner,
     this.upperCorner,
   });

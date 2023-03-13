@@ -7,7 +7,7 @@ part of 'common.dart';
 // **************************************************************************
 
 Point _$PointFromJson(Map<String, dynamic> json) => Point(
-      pos: json['pos'] as String?,
+      point: const PointConverter().fromJson(json['pos'] as String?),
     );
 
 BoundedBy _$BoundedByFromJson(Map<String, dynamic> json) => BoundedBy(

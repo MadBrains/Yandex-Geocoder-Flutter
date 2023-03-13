@@ -45,20 +45,7 @@ class YandexGeocoder {
     }
 
     return network.getGeocode(
-      request: _checkKey
-          ? geocode
-          : GeocodeRequest.withKey(
-              apiKey: apiKey!,
-              geocode: geocode.geocode,
-              kind: geocode.kind,
-              rspn: geocode.rspn,
-              ll: geocode.ll,
-              spn: geocode.spn,
-              bbox: geocode.bbox,
-              results: geocode.results,
-              skip: geocode.skip,
-              lang: geocode.lang,
-            ),
+      request: _checkKey ? geocode : geocode.withKey(apiKey!),
       response: GeocodeResponse.fromJson,
       error: Error.fromJson,
     );

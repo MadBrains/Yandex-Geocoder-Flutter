@@ -1,3 +1,9 @@
+## [2.2.0-dev.1]
+
+* Dart 3 support 
+* Dependency update
+* Added class modifiers
+
 ## [2.1.0]
 
 * `Comparer` refactor

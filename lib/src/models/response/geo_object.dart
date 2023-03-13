@@ -1,8 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:yandex_geocoder/yandex_geocoder.dart';
 
 import '../../constants.dart';
 import '../../utils/comparer.dart';
-import 'response.dart';
 
 part 'geo_object.g.dart';
 
@@ -12,7 +12,7 @@ part 'geo_object.g.dart';
 @JsonSerializable(createToJson: false)
 class GeoObjectCollection with Comparer {
   /// {@macro geo_object_collection}
-  GeoObjectCollection({
+  const GeoObjectCollection({
     this.metaDataProperty,
     this.featureMember,
   });
@@ -40,7 +40,7 @@ class GeoObjectCollection with Comparer {
 @JsonSerializable(createToJson: false)
 class FeatureMember with Comparer {
   /// {@macro feature_member}
-  FeatureMember({
+  const FeatureMember({
     this.geoObject,
   });
 
@@ -62,7 +62,7 @@ class FeatureMember with Comparer {
 @JsonSerializable(createToJson: false)
 class GeoObject with Comparer {
   /// {@macro geo_object}
-  GeoObject({
+  const GeoObject({
     this.metaDataProperty,
     this.name,
     this.description,
@@ -105,7 +105,7 @@ class GeoObject with Comparer {
 @JsonSerializable(createToJson: false)
 class GeoObjectMetaDataProperty with Comparer {
   /// {@macro meta_data_property}
-  GeoObjectMetaDataProperty({
+  const GeoObjectMetaDataProperty({
     this.geocoderMetaData,
   });
 
@@ -125,7 +125,7 @@ class GeoObjectMetaDataProperty with Comparer {
 @JsonSerializable(createToJson: false)
 class GeocoderMetaData with Comparer {
   /// {@macro meta_data_property}
-  GeocoderMetaData({
+  const GeocoderMetaData({
     this.precision,
     this.text,
     this.kind,
@@ -168,7 +168,7 @@ class GeocoderMetaData with Comparer {
 @JsonSerializable(createToJson: false)
 class GeoObjectCollectionMetaDataProperty with Comparer {
   /// {@macro geocoder_response_meta_data}
-  GeoObjectCollectionMetaDataProperty({
+  const GeoObjectCollectionMetaDataProperty({
     this.geocoderResponseMetaData,
   });
 
@@ -190,7 +190,7 @@ class GeoObjectCollectionMetaDataProperty with Comparer {
 @JsonSerializable(createToJson: false)
 class GeocoderResponseMetaData with Comparer {
   /// {@macro geocoder_response_meta_data}
-  GeocoderResponseMetaData({
+  const GeocoderResponseMetaData({
     this.point,
     this.boundedBy,
     this.request,
