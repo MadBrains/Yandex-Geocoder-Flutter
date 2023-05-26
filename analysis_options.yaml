@@ -15,6 +15,11 @@ analyzer:
     avoid_slow_async_io: error
     avoid_relative_lib_imports: error
     avoid_types_as_parameter_names: error
+  enable-experiment:
+    - records
+    - patterns
+    - class-modifiers
+    - sealed-class
 
 linter:
   rules:

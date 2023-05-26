@@ -1,6 +1,7 @@
-<h1 align="center">Flutter Yandex Geocoder</h1>
+<a href="https://madbrains.ru/?utm_source=gthb"><img src="docs/banner.png"></a>
+<img align="left" src="docs/banner_geocoder.png" width="480" height="360" /></a>
 
-<a href="https://madbrains.ru/"><img src="https://firebasestorage.googleapis.com/v0/b/mad-brains-web.appspot.com/o/logo.png?alt=media" width="200" align="right" style="margin: 20px;"/></a>
+<h1 align="center">Flutter Yandex Geocoder</h1>
 
 [![pub package](https://img.shields.io/pub/v/yandex_geocoder.svg)](https://pub.dartlang.org/packages/yandex_geocoder)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -10,6 +11,15 @@
 Геокодер помогает определить координаты объекта по его адресу или, наоборот, установить адрес по координатам.
 
 [Документация по API][documentation].
+
+<a href="https://madbrains.ru/?utm_source=gthb">
+<img src="docs/Get started_stroke.png" width="249" height="45"></a>
+</p>
+
+<p><h5>Subscribe for the latest updates:</h5>
+<a href="https://github.com/MadBrains" >
+<img src="docs/Follow us_stroke.png" width="138" height="26"></a></p>
+</br>
 
 ## Возможности
 * Прямое геокодирование. Используется для определения координат по названию объекта или его адресу. API учитывает распространенные опечатки и предлагает несколько подходящих вариантов. Например, можно преобразовать указанный пользователем адрес в координаты.
