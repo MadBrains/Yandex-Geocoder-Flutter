@@ -1,16 +1,16 @@
 name: yandex_geocoder
 description: API to translate geographic coordinates into an address and vice versa
-version: 2.2.0-dev.1
+version: 2.2.0
 repository: https://github.com/MadBrains/Yandex-Geocoder-Flutter
 issue_tracker: https://github.com/MadBrains/Yandex-Geocoder-Flutter/issues
 homepage: https://madbrains.ru/
 
 environment:
-  sdk: ">=3.0.0-218.1.beta <4.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   collection: ^1.17.1
-  http: ^0.13.5
+  http: ^1.0.0
   json_annotation: ^4.8.0
 
 dev_dependencies:

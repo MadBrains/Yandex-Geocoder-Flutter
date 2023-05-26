@@ -32,7 +32,7 @@
 Для подключения добавьте в файл Pubspec зависимости:
 ```yaml
 dependencies:
-  yandex_geocoder: 2.2.0-dev.1
+  yandex_geocoder: 2.2.0
 ```
 
 ## Использование
@@ -42,12 +42,12 @@ dependencies:
 final YandexGeocoder geocoder = YandexGeocoder(apiKey: 'Your Api Key');
 
 final GeocodeResponse geocodeFromPoint = await geocoder.getGeocode(ReverseGeocodeRequest(
-      pointGeocode: (55.771899, 37.597576),
-    ));
+  pointGeocode: (55.771899, 37.597576),
+));
 
 final GeocodeResponse geocodeFromAddress = await geocoder.getGeocode(DirectGeocodeRequest(
-      addressGeocode: 'Москва, 4-я Тверская-Ямская улица, 7',
-    ));
+  addressGeocode: 'Москва, 4-я Тверская-Ямская улица, 7',
+));
 ```
 
 ## Пример работы

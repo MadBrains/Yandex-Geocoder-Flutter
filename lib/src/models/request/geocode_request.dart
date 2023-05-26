@@ -3,7 +3,7 @@ part of 'request.dart';
 /// {@template geocode_request}
 /// Модель запроса на геокодирования
 /// {@endtemplate}
-abstract base class GeocodeRequest with Comparer {
+abstract class GeocodeRequest with Comparer {
   /// {@template geocode_request}
   const GeocodeRequest({
     this.apiKey,
@@ -63,8 +63,7 @@ abstract base class GeocodeRequest with Comparer {
   GeocodeRequest withKey(String apiKey);
 
   /// Преобразование модели в json
-  Map<String, String> toJson() =>
-      <String, String>{
+  Map<String, String> toJson() => <String, String>{
         if (apiKey != null) kApiKey: apiKey!,
         kFormat: kJson,
         kSco: kLongLat,
@@ -80,8 +79,7 @@ abstract base class GeocodeRequest with Comparer {
       };
 
   @override
-  List<Object?> get comparedObjects =>
-      <Object?>[
+  List<Object?> get comparedObjects => <Object?>[
         apiKey,
         kind,
         rspn,
@@ -123,7 +121,6 @@ class DirectGeocodeRequest extends GeocodeRequest {
         lang: lang,
       );
 
-
   /// Используется для явного указания ключа
   ///
   /// {@macro direct_geocode_request}
@@ -164,16 +161,16 @@ class DirectGeocodeRequest extends GeocodeRequest {
     int? skip,
     Lang? lang,
   }) : super(
-    apiKey: apiKey,
-    kind: kind,
-    rspn: rspn,
-    ll: ll,
-    spn: spn,
-    bbox: bbox,
-    results: results,
-    skip: skip,
-    lang: lang,
-  );
+          apiKey: apiKey,
+          kind: kind,
+          rspn: rspn,
+          ll: ll,
+          spn: spn,
+          bbox: bbox,
+          results: results,
+          skip: skip,
+          lang: lang,
+        );
 
   /// Адрес искомого объекта.
   /// Используется для прямого геокодирования.
@@ -183,8 +180,7 @@ class DirectGeocodeRequest extends GeocodeRequest {
   String get _toGeocode => addressGeocode;
 
   @override
-  DirectGeocodeRequest withKey(String apiKey) =>
-      DirectGeocodeRequest._(
+  DirectGeocodeRequest withKey(String apiKey) => DirectGeocodeRequest._(
         apiKey: apiKey,
         addressGeocode: addressGeocode,
         kind: kind,
@@ -197,7 +193,6 @@ class DirectGeocodeRequest extends GeocodeRequest {
         lang: lang,
       );
 }
-
 
 /// {@template direct_geocode_request}
 /// Запрос для геокодирования через координаты искомого объекта.
@@ -268,16 +263,16 @@ class ReverseGeocodeRequest extends GeocodeRequest {
     int? skip,
     Lang? lang,
   }) : super(
-    apiKey: apiKey,
-    kind: kind,
-    rspn: rspn,
-    ll: ll,
-    spn: spn,
-    bbox: bbox,
-    results: results,
-    skip: skip,
-    lang: lang,
-  );
+          apiKey: apiKey,
+          kind: kind,
+          rspn: rspn,
+          ll: ll,
+          spn: spn,
+          bbox: bbox,
+          results: results,
+          skip: skip,
+          lang: lang,
+        );
 
   /// Адрес искомого объекта.
   /// Используется для прямого геокодирования.
@@ -287,8 +282,7 @@ class ReverseGeocodeRequest extends GeocodeRequest {
   String get _toGeocode => const PointConverter().toJson(pointGeocode);
 
   @override
-  ReverseGeocodeRequest withKey(String apiKey) =>
-      ReverseGeocodeRequest._(
+  ReverseGeocodeRequest withKey(String apiKey) => ReverseGeocodeRequest._(
         apiKey: apiKey,
         pointGeocode: pointGeocode,
         kind: kind,

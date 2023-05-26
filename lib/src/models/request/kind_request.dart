@@ -25,10 +25,10 @@ enum KindRequest {
 /// extension for Kind
 extension _KindX on KindRequest {
   String _toKind() => switch (this) {
-    KindRequest.house => 'house',
-    KindRequest.street =>'street',
-    KindRequest.metro =>'metro',
-    KindRequest.district =>'district',
-    KindRequest.locality => 'locality'
-  };
+        KindRequest.house => 'house',
+        KindRequest.street => 'street',
+        KindRequest.metro => 'metro',
+        KindRequest.district => 'district',
+        KindRequest.locality => 'locality'
+      };
 }

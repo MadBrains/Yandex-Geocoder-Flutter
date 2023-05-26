@@ -1,8 +1,9 @@
-## [2.2.0-dev.1]
+## [2.2.0]
 
 * Dart 3 support 
 * Dependency update
 * Added class modifiers
+* BREAKING CHANGES: Minimum iOS version has been bumped to 11
 
 ## [2.1.0]
 
