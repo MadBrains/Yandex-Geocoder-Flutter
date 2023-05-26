@@ -24,12 +24,12 @@ enum Lang {
 }
 
 extension _LangX on Lang {
-  String _toLang() => switch(this) {
-    Lang.uk => 'uk_UA',
-    Lang.be => 'be_BY',
-    Lang.enRu => 'en_RU',
-    Lang.enEn => 'en_US',
-    Lang.tr => 'tr_TR',
-    Lang.ru => 'ru_RU'
-  };
+  String _toLang() => switch (this) {
+        Lang.uk => 'uk_UA',
+        Lang.be => 'be_BY',
+        Lang.enRu => 'en_RU',
+        Lang.enEn => 'en_US',
+        Lang.tr => 'tr_TR',
+        Lang.ru => 'ru_RU'
+      };
 }
