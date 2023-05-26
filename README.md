@@ -42,14 +42,14 @@ To work you will need **Api Key**, a key to work with Yandex API. It can be obta
 final YandexGeocoder geocoder = YandexGeocoder(apiKey: 'Your Api Key');
 
 final GeocodeResponse geocodeFromPoint = await geocoder.getGeocode(ReverseGeocodeRequest(
-pointGeocode: (55.771899,37.597576),
-lang: Lang.enEn,
-));
+        pointGeocode: (55.771899,37.597576),
+        lang: Lang.enEn,
+    ));
 
 final GeocodeResponse geocodeFromAddress = await geocoder.getGeocode(DirectGeocodeRequest(
-addressGeocode: 'Moscow, 4th Tverskaya-Yamskaya street, 7',
-lang: Lang.enEn,
-));
+        addressGeocode: 'Moscow, 4th Tverskaya-Yamskaya street, 7',
+        lang: Lang.enEn,
+    ));
 ```
 
 ## Example

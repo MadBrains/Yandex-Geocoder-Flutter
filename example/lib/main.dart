@@ -25,7 +25,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final YandexGeocoder geo = YandexGeocoder(apiKey: '9f95e123-735c-475b-8b2a-9071800fc670');
+  final YandexGeocoder geo = YandexGeocoder(apiKey: 'Your Api Key');
 
   String address = 'null';
   String latLong = 'null';
