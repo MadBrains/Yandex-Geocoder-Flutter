@@ -1,3 +1,7 @@
+## [2.2.1]
+* Dependency update
+* Fix get first on empty list error in geocode_response
+
 ## [2.2.0]
 
 * Dart 3 support 
