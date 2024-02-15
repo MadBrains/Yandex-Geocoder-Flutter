@@ -21,7 +21,7 @@ class GeocodeResponse with Comparer {
       _$GeocodeResponseFromJson(json);
 
   GeoObject? get _firstGeoObject =>
-      response?.geoObjectCollection?.featureMember?.first.geoObject;
+      response?.geoObjectCollection?.featureMember?.firstOrNull?.geoObject;
 
   /// Первый адрес
   Address? get firstAddress =>
