@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Column(
               children: <Widget>[
                 const Text('address: Москва, 4-я Тверская-Ямская улица, 7'),
-                Text(latLong),
+                Text(latLong.toString()),
               ],
             ),
           ],
@@ -60,20 +60,19 @@ class _MyHomePageState extends State<MyHomePage> {
           setState(() {});
 
           final GeocodeResponse _address = await geo.getGeocode(
-            GeocodeRequest(
-              geocode: PointGeocode(latitude: 55.771899, longitude: 37.597576),
+            ReverseGeocodeRequest(
+              pointGeocode: (lat: 55.771899, lon: 37.597576),
             ),
           );
           address = _address.firstAddress?.formatted ?? 'null';
 
           final GeocodeResponse _latLong = await geo.getGeocode(
-            GeocodeRequest(
-              geocode: AddressGeocode(
-                address: 'Москва, 4-я Тверская-Ямская улица, 7',
-              ),
+            DirectGeocodeRequest(
+              addressGeocode: 'Москва, 4-я Тверская-Ямская улица, 7',
             ),
           );
-          latLong = _latLong.firstPoint?.pos ?? 'null';
+
+          latLong = _latLong.firstPoint.toString();
 
           setState(() {});
         },

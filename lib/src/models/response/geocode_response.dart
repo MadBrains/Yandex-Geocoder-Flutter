@@ -1,8 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:yandex_geocoder/src/models/models.dart';
 
 import '../../constants.dart';
 import '../../utils/comparer.dart';
-import 'response.dart';
 
 part 'geocode_response.g.dart';
 
@@ -12,7 +12,7 @@ part 'geocode_response.g.dart';
 @JsonSerializable(createToJson: false)
 class GeocodeResponse with Comparer {
   /// {@macro geocode_response}
-  GeocodeResponse({
+  const GeocodeResponse({
     this.response,
   });
 
@@ -21,7 +21,7 @@ class GeocodeResponse with Comparer {
       _$GeocodeResponseFromJson(json);
 
   GeoObject? get _firstGeoObject =>
-      response?.geoObjectCollection?.featureMember?.first.geoObject;
+      response?.geoObjectCollection?.featureMember?.firstOrNull?.geoObject;
 
   /// Первый адрес
   Address? get firstAddress =>
@@ -32,7 +32,7 @@ class GeocodeResponse with Comparer {
       ?.metaDataProperty?.geocoderMetaData?.addressDetails?.country;
 
   /// Первая координата
-  Point? get firstPoint => _firstGeoObject?.point;
+  PointRecord? get firstPoint => _firstGeoObject?.point?.point;
 
   /// Первый полный адрес с координатой
   FullAddress get firstFullAddress => FullAddress(
@@ -57,7 +57,7 @@ class GeocodeResponse with Comparer {
       ?.country;
 
   /// Координата по id
-  Point? point(int id) => _geoObject(id)?.point;
+  PointRecord? point(int id) => _geoObject(id)?.point?.point;
 
   /// Полный адрес с координатой по id
   FullAddress fullAddress(int id) => FullAddress(
@@ -81,7 +81,7 @@ class GeocodeResponse with Comparer {
 @JsonSerializable(createToJson: false)
 class Response with Comparer {
   /// {@macro response}
-  Response({
+  const Response({
     this.geoObjectCollection,
   });
 

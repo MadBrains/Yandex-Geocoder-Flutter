@@ -6,9 +6,6 @@ analyzer:
     strict-casts: true
     strict-inference: true
     strict-raw-types: true
-  strong-mode:
-    implicit-casts: false
-    implicit-dynamic: false
   errors:
     todo: ignore
     missing_return: warning
@@ -18,6 +15,11 @@ analyzer:
     avoid_slow_async_io: error
     avoid_relative_lib_imports: error
     avoid_types_as_parameter_names: error
+  enable-experiment:
+    - records
+    - patterns
+    - class-modifiers
+    - sealed-class
 
 linter:
   rules:
@@ -88,7 +90,6 @@ linter:
     - prefer_const_declarations
     - prefer_const_literals_to_create_immutables
     - prefer_contains
-    - prefer_equal_for_default_values
     - prefer_final_fields
     - prefer_final_in_for_each
     - prefer_final_locals
