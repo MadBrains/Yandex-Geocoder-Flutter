@@ -1,3 +1,6 @@
+## [2.3.0]
+* Update min Dart SDK to 3.2
+
 ## [2.2.1]
 * Dependency update
 * Fix get first on empty list error in geocode_response
