@@ -4,7 +4,7 @@ part of 'request.dart';
 /// Модель запроса на геокодирования
 /// {@endtemplate}
 abstract class GeocodeRequest with Comparer {
-  /// {@template geocode_request}
+  /// {@macro geocode_request}
   const GeocodeRequest({
     this.apiKey,
     this.kind,
