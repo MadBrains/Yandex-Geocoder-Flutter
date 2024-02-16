@@ -1,5 +1,5 @@
-<a href="https://madbrains.ru/?utm_source=gthb"><img src="docs/banner.png"></a>
-<img align="left" src="docs/banner_geocoder.png" width="480" height="360" /></a>
+<a href="https://madbrains.ru/?utm_source=gthb"><img src="https://firebasestorage.googleapis.com/v0/b/mad-brains-web.appspot.com/o/banner.png?alt=media"></a>
+<img align="left" src="https://firebasestorage.googleapis.com/v0/b/mad-brains-web.appspot.com/o/banner_geocoder.png?alt=media&token=59013dd3-f0c1-4f91-a1b9-37a9ca1b3066" width="480" height="360" /></a>
 
 <h1 align="center">Flutter Yandex Geocoder</h1>
 
@@ -13,12 +13,12 @@ The geocoder helps to determine the coordinates of an object by its address or, 
 [Available API Documentation][documentation].
 
 <a href="https://madbrains.ru/?utm_source=gthb">
-<img src="docs/Get started_stroke.png" width="249" height="45"></a>
+<img src="https://firebasestorage.googleapis.com/v0/b/mad-brains-web.appspot.com/o/get_started_stroke.png?alt=media" width="249" height="45"></a>
 </p>
 
 <p><h5>Subscribe for the latest updates:</h5>
 <a href="https://github.com/MadBrains" >
-<img src="docs/Follow us_stroke.png" width="138" height="26"></a></p>
+<img src="https://firebasestorage.googleapis.com/v0/b/mad-brains-web.appspot.com/o/follow_us_stroke.png?alt=media" width="138" height="26"></a></p>
 </br>
 
 ## SDK Features
