@@ -1,3 +1,7 @@
+## [2.3.0+1]
+* Edit urls of images in README
+* Rename folder "docs" to "doc"
+
 ## [2.3.0]
 * Update min Dart SDK to 3.2
 
