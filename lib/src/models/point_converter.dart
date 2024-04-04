@@ -16,8 +16,8 @@ class PointConverter implements JsonConverter<PointRecord?, String?> {
     final List<double?> splitPos =
         json.split(' ').map((String e) => double.tryParse(e)).toList();
 
-    final double? lat = splitPos.first;
-    final double? lon = splitPos.last;
+    final double? lat = splitPos.last;
+    final double? lon = splitPos.first;
 
     if (lat == null || lon == null) return null;
 
