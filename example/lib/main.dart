@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Column(
               children: <Widget>[
-                const Text('latitude: 37.597576, longitude: 55.771899'),
+                const Text('latitude: 55.771899, longitude: 37.597576'),
                 Text(address),
               ],
             ),
