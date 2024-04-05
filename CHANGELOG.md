@@ -1,3 +1,6 @@
+## [2.3.1]
+* Fix: change lat and lon position
+
 ## [2.3.0+1]
 * Edit urls of images in README
 * Rename folder "docs" to "doc"
